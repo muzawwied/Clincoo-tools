@@ -53,14 +53,6 @@
   .search input::placeholder { color: var(--mut); }
   .search input:focus { border-color: var(--mut); background: var(--bg); }
 
-  /* Chip filter */
-  .chips { display: flex; gap: 8px; margin: 12px -16px 0; padding: 0 16px 2px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .chips::-webkit-scrollbar { display: none; }
-  .chip { flex: none; height: 34px; padding: 0 15px; border-radius: 9999px; background: var(--card); color: var(--fg); font-size: 13.5px; font-weight: 500; white-space: nowrap; transition: background-color .15s, color .15s, transform .12s; }
-  .chip:hover { background: var(--card2); }
-  .chip:active { transform: scale(.97); }
-  .chip.on { background: var(--fg); color: var(--inv); }
-
   .sec { margin: 32px 6px 10px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sec); }
 
   /* Kartu bergrup: sudut luar besar, sudut dalam kecil */
@@ -88,6 +80,22 @@
   .empty p { margin-top: 6px; max-width: 280px; font-size: 14px; line-height: 1.5; color: var(--mut); }
 
 
+  /* Donasi */
+  .dn { padding: 18px; border-radius: 22px; background: var(--card); }
+  .dn-top { display: flex; align-items: flex-start; gap: 14px; }
+  .dn-i { flex: none; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 9999px; background: var(--card2); font-size: 22px; }
+  .dn-t { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: -.01em; line-height: 1.3; margin-top: 2px; }
+  .dn-s { margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--mut); text-wrap: pretty; }
+  .dn-b { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; height: 46px; margin-top: 16px; border-radius: 9999px; background: var(--fg); color: var(--inv); font-size: 14.5px; font-weight: 600; transition: opacity .15s, transform .12s; }
+  .dn-b:hover { opacity: .88; }
+  .dn-b:active { transform: scale(.98); }
+  .dn-b i { font-size: 16px; }
+
+  /* Footer */
+  .foot { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12.5px; line-height: 1.6; text-align: center; color: var(--mut); text-wrap: pretty; }
+  .foot a { color: var(--mut); text-decoration: underline; text-underline-offset: 3px; transition: color .15s; }
+  .foot a:hover { color: var(--fg); }
+
   @media (prefers-reduced-motion: reduce) { main { animation: none; } .it, .go { transition: none; } }
 </style>
 </head>
@@ -114,9 +122,26 @@
 
   <div class="search"><i class="ph ph-magnifying-glass"></i><input id="q" type="search" placeholder="Cari tools" aria-label="Cari tools" autocomplete="off"></div>
 
-  <div class="chips" id="chips" role="tablist" aria-label="Filter kategori"></div>
-
   <div id="list"></div>
+
+  <!-- Donasi: ganti href dengan link Saweria / Trakteer / Ko-fi milikmu -->
+  <section class="donate">
+    <div class="sec">Dukung Clincoo</div>
+    <div class="dn">
+      <div class="dn-top">
+        <span class="dn-i"><i class="ph ph-coffee"></i></span>
+        <div>
+          <h2 class="dn-t">Traktir kopi</h2>
+          <p class="dn-s">Semua tools ini gratis dan tanpa iklan. Kalau terbantu, dukunganmu membuat Clincoo tetap jalan dan terus bertambah.</p>
+        </div>
+      </div>
+      <a class="dn-b" href="https://trakteer.id/clincoo" target="_blank" rel="noopener">Dukung sekarang <i class="ph ph-arrow-up-right"></i></a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Dengan menggunakan Clincoo Tools, kamu menyetujui <a href="/syarat-ketentuan">Syarat &amp; Ketentuan</a> dan <a href="/kebijakan-privasi">Kebijakan Privasi</a> kami.</p>
+  </footer>
 
 </main>
 
@@ -128,7 +153,7 @@
   /* ====== DAFTAR TOOLS ======
      Tambah tool baru: salin satu baris, ganti isinya.
      ico  : nama ikon Phosphor (https://phosphoricons.com)
-     cat  : kategori; chip filter dibuat otomatis dari nilai ini
+     cat  : kategori; jadi judul abu-abu grup, dibuat otomatis dari nilai ini
      href : link tool; kosongkan dan set soon:true bila belum rilis */
   var TOOLS = [
     { name: 'Clincoo QR',      cat: 'Umum', desc: 'Buat QR code untuk link, WhatsApp, dan Wi-Fi', ico: 'ph-qr-code',       href: '/tools/qr' },
@@ -136,9 +161,6 @@
     { name: 'Clincoo WA Link', cat: 'Umum', desc: 'Link WhatsApp dengan pesan otomatis',          ico: 'ph-whatsapp-logo', href: '/tools/wa' },
     { name: 'Clincoo Hitung',  cat: 'Keuangan',  desc: 'Kalkulator THR, PPh 21, dan cicilan',          ico: 'ph-calculator',    href: '/tools/hitung' }
   ];
-  var CATS = ['Semua'];
-  TOOLS.forEach(function (t) { if (t.cat && CATS.indexOf(t.cat) < 0) CATS.push(t.cat); });
-  var cat = 'Semua';
 
   /* Tema: ikut pengaturan clq_theme (sama dengan halaman lain) atau sistem */
   var mq = matchMedia('(prefers-color-scheme: dark)');
@@ -161,27 +183,23 @@
   }
   function draw() {
     var q = $('q').value.trim().toLowerCase();
-    var rows = TOOLS.filter(function (t) {
-      return (cat === 'Semua' || t.cat === cat) && (!q || (t.name + ' ' + t.desc).toLowerCase().indexOf(q) > -1);
-    });
+    var rows = TOOLS.filter(function (t) { return !q || (t.name + ' ' + t.desc).toLowerCase().indexOf(q) > -1; });
     var out = '';
-    if (rows.length) out += '<div class="card" style="margin-top:20px">' + rows.map(row).join('') + '</div>';
+    if (rows.length) {
+      var groups = [], map = {};
+      rows.forEach(function (t) {
+        var c = t.cat || 'Lainnya';
+        if (!map[c]) { map[c] = []; groups.push(c); }
+        map[c].push(t);
+      });
+      out = groups.map(function (c) {
+        return '<div class="sec">' + esc(c) + '</div><div class="card">' + map[c].map(row).join('') + '</div>';
+      }).join('');
+    }
     if (!rows.length) out = '<div class="empty"><i class="ph ph-magnifying-glass"></i><h2>Tidak ditemukan</h2><p>Tidak ada tool yang cocok dengan pencarianmu.</p></div>';
     $('list').innerHTML = out;
   }
-  function drawChips() {
-    $('chips').innerHTML = CATS.map(function (c) {
-      return '<button type="button" class="chip' + (c === cat ? ' on' : '') + '" role="tab" aria-selected="' + (c === cat) + '" data-c="' + esc(c) + '">' + esc(c) + '</button>';
-    }).join('');
-  }
-  $('chips').onclick = function (e) {
-    var b = e.target.closest('.chip');
-    if (!b) return;
-    cat = b.getAttribute('data-c');
-    drawChips(); draw();
-  };
   $('q').oninput = draw;
-  drawChips();
   draw();
 })();
 </script>
