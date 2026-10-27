@@ -137,6 +137,9 @@
   input[type="text"] { width: 100%; height: 46px; padding: 0 16px; border: 1px solid transparent; border-radius: 9999px; background: var(--bg); color: var(--fg); font: inherit; font-size: 16px; outline: none; -webkit-appearance: none; appearance: none; transition: border-color .15s, box-shadow .15s; }
   input::placeholder { color: var(--mut); opacity: .8; }
   input:focus { border-color: var(--ac); background: var(--card); box-shadow: 0 0 0 4px var(--acs); }
+  input[type="range"] { width: 100%; height: 28px; margin: 0; background: none; accent-color: var(--ac); cursor: pointer; }
+  #rm-tol { display: flex; flex-direction: column; gap: 2px; }
+  .tolh { display: flex; align-items: center; justify-content: space-between; }
   .big-in { height: 56px !important; font-size: 22px !important; font-weight: 700; text-align: center; }
   .emojis { display: flex; flex-wrap: wrap; gap: 6px; }
   .emojis button { width: 42px; height: 42px; border-radius: 12px; background: var(--bg); font-size: 21px; line-height: 1; transition: background-color .15s, transform .12s; }
@@ -326,7 +329,7 @@
   #tabs .chip:not([aria-pressed="true"]) { background: var(--card); }
   .stage { padding: 24px 20px 26px; border-radius: 28px; background: linear-gradient(165deg, #2a0845, #5b0f8f 58%, #ac0cea); color: #fff; box-shadow: 0 24px 50px rgba(91,15,143,.3); }
   .stage .stp { margin-bottom: 18px; }
-  .stage .stp .n { background: #15e99d; color: #1a0630; }
+  .stage .stp .n { background: #c35cf2; color: #fff; }
   .stage .pv:not(.chk) { background: rgba(255,255,255,.1); }
   .stage .pv { box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
   .stage .mock { margin-top: 18px; }
@@ -335,11 +338,11 @@
   .stage .btn { background: rgba(255,255,255,.14); color: #fff; }
   .stage .btn i { color: #fff; }
   .stage .btn:hover { background: rgba(255,255,255,.26); color: #fff; }
-  .stage .btn.pri { background: #15e99d; color: #1a0630; box-shadow: 0 10px 24px rgba(21,233,157,.28); }
-  .stage .btn.pri i { color: #1a0630; }
-  .stage .btn.pri:hover { background: #3df0b2; color: #1a0630; }
+  .stage .btn.pri { background: #c35cf2; color: #fff; box-shadow: 0 10px 24px rgba(195,92,242,.4); }
+  .stage .btn.pri i { color: #fff; }
+  .stage .btn.pri:hover { background: #d27bf5; color: #fff; }
   .stage .note { background: rgba(255,200,60,.16); color: #ffd778; }
-  @media (max-width: 899px) { .stage { margin-left: -34px; margin-right: -34px; border-radius: 0; } .pv { width: min(100%, 168px); border-radius: 20px; } }
+  @media (max-width: 899px) { .bench { margin-left: -20px; margin-right: -20px; padding-bottom: 0; border-radius: 0; } .stage { margin-left: -14px; margin-right: -14px; border-radius: 0; } .pv { width: min(100%, 168px); border-radius: 20px; } }
   .steps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .steps li { flex-direction: column; gap: 14px; padding: 22px; border-radius: 24px; background: var(--bg); }
   .steps .n { width: 38px; height: 38px; font-size: 15px; font-weight: 700; }
@@ -379,19 +382,6 @@
       <a href="#pasang">Pasang di website<i class="ph ph-arrow-right"></i></a>
       <a href="#fitur">Fitur<i class="ph ph-arrow-right"></i></a>
       <a href="#faq">FAQ<i class="ph ph-arrow-right"></i></a>
-    </div>
-    <div class="nav-sec">
-      <button class="nav-dd" type="button" id="dd-btn" aria-expanded="false" aria-controls="dd-list"><i class="ph ph-squares-four"></i><span>Produk</span><i class="ph ph-caret-down car"></i></button>
-      <div class="dd-wrap" id="dd-list">
-        <div class="dd-in">
-          <a href="https://www.clincoo.buzz"><i class="lg-cat"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#fff"/><g fill="#000"><path d="M10 16C7 10 9 7 12 7C14 7 15 11 13 16Z"/><path d="M12 9C10.5 11 11 13 12 14.5C13 13 13.5 11 12 9Z" fill="#fff" opacity=".25"/><path d="M22 16C25 10 23 7 20 7C18 7 17 11 19 16Z"/><path d="M20 9C21.5 11 21 13 20 14.5C19 13 18.5 11 20 9Z" fill="#fff" opacity=".25"/><path d="M16 27C24 27 28 22.5 28 17C28 12.5 21 11.5 16 11.5C11 11.5 4 12.5 4 17C4 22.5 8 27 16 27Z"/></g><circle cx="12.5" cy="17" r="1.5" fill="#fff" opacity=".6"/><circle cx="19.5" cy="17" r="1.5" fill="#fff" opacity=".6"/><polygon points="16,20 15,18.5 17,18.5" fill="#fff" opacity=".5"/></svg></i><span>Clincoo</span><i class="ph ph-arrow-up-right"></i></a>
-          <a href="#"><i class="lg-ai"><svg viewBox="250 250 524 524" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#000"><path d="M512 512C512 380 580 280 680 261C685 380 640 490 512 512Z"/><path d="M512 512C512 380 580 280 680 261C685 380 640 490 512 512Z" transform="rotate(90 512 512)"/><path d="M512 512C512 380 580 280 680 261C685 380 640 490 512 512Z" transform="rotate(180 512 512)"/><path d="M512 512C512 380 580 280 680 261C685 380 640 490 512 512Z" transform="rotate(270 512 512)"/><circle cx="469" cy="293" r="32"/><circle cx="469" cy="293" r="32" transform="rotate(90 512 512)"/><circle cx="469" cy="293" r="32" transform="rotate(180 512 512)"/><circle cx="469" cy="293" r="32" transform="rotate(270 512 512)"/></g></svg></i><span>Clincoo AI</span><i class="ph ph-arrow-up-right"></i></a>
-          <a href="#"><i class="lg-tile"><svg viewBox="0 0 48 48" fill="#fff" aria-hidden="true"><path d="M3 22A19 19 0 0 1 22 3L22 22Z"/><path d="M22 26L3 26A19 19 0 0 0 22 45Z"/><circle cx="35.5" cy="12.5" r="9.5"/><circle cx="35.5" cy="35.5" r="9.5"/></svg></i><span>Clincoo Tools</span><i class="ph ph-arrow-up-right"></i></a>
-          <a href="#"><i class="lg-qr"><svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="4"><rect x="4" y="4" width="16" height="16" rx="5"/><rect x="28" y="4" width="16" height="16" rx="5"/><rect x="4" y="28" width="16" height="16" rx="5"/></g><g fill="currentColor"><rect x="10" y="10" width="4" height="4" rx="1.5"/><rect x="34" y="10" width="4" height="4" rx="1.5"/><rect x="10" y="34" width="4" height="4" rx="1.5"/><rect x="28" y="28" width="7" height="7" rx="2.5"/><rect x="37" y="28" width="7" height="7" rx="2.5"/><rect x="28" y="37" width="7" height="7" rx="2.5"/><rect x="37" y="37" width="7" height="7" rx="2.5"/></g></svg></i><span>Clincoo QR</span><i class="ph ph-arrow-up-right"></i></a>
-          <a href="#" aria-current="page"><i class="lg-fav"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#ac0cea"/><path d="M566 476Q553 559 510 601Q468 643 398 644Q346 644 307 620Q268 596 242 556Q217 516 204 465Q192 414 192 360Q192 274 216 208Q241 141 288 103Q335 65 402 65Q465 65 527 98Q589 130 631 188L679 144Q630 77 576 42Q522 8 470 -4Q419 -16 378 -16Q301 -16 238 12Q175 39 130 88Q84 136 60 200Q35 265 35 340Q35 408 57 475Q79 542 122 596Q166 651 232 684Q298 716 385 716Q424 716 470 704Q517 691 558 667L554 709H631V476Z" transform="translate(10.84 37.39) scale(0.03825 -0.03825)" fill="#fff"/></svg></i><span>Clincoo Favicon</span><i class="ph ph-check"></i></a>
-          <a href="#"><i class="ph ph-article"></i><span>Clincoo Blog</span><i class="ph ph-arrow-up-right"></i></a>
-        </div>
-      </div>
     </div>
     <div class="nav-sec">
       <p class="sec">Tema</p>
@@ -440,6 +430,18 @@
             <input type="file" id="f-img" accept="image/*" hidden>
           </div>
           <p class="hint">PNG, JPG, WebP, atau SVG. Paling bagus persegi, minimal 512 px, dengan bentuk sederhana. Maksimal 5 MB.</p>
+        </div>
+        <div class="row" data-p="image" id="row-rm" hidden>
+          <span class="lb">Hapus latar gambar</span>
+          <div class="seg" id="rm" role="group" aria-label="Hapus latar gambar">
+            <button class="chip" type="button" data-v="0" aria-pressed="true">Asli</button>
+            <button class="chip" type="button" data-v="1" aria-pressed="false">Hapus latar</button>
+          </div>
+          <div id="rm-tol" hidden>
+            <div class="tolh"><label class="hint" for="f-tol">Toleransi</label><span class="hint" id="tol-v">40</span></div>
+            <input type="range" id="f-tol" min="10" max="120" step="1" value="40">
+          </div>
+          <p class="hint">Cocok untuk gambar dengan latar polos. Naikkan toleransi kalau masih ada sisa latar, turunkan kalau gambarnya ikut terpotong.</p>
         </div>
       </div>
     </section>
@@ -537,6 +539,14 @@
             <p class="hint">Dipakai di pratinjau tab dan file site.webmanifest.</p>
           </div>
           <div class="row">
+            <span class="lb">Ketajaman ikon kecil</span>
+            <div class="seg" id="sharp" role="group" aria-label="Ketajaman ikon kecil">
+              <button class="chip" type="button" data-v="1" aria-pressed="true">Tajam</button>
+              <button class="chip" type="button" data-v="0" aria-pressed="false">Normal</button>
+            </div>
+            <p class="hint">Ikon 16, 32, dan 48 px dirender ulang lebih halus lalu ditajamkan, jadi tepinya tidak buram di tab browser dan hasil unduhan.</p>
+          </div>
+          <div class="row">
             <button class="btn sm" type="button" id="reset"><i class="ph ph-arrow-counter-clockwise"></i>Atur ulang tampilan</button>
           </div>
         </div>
@@ -594,7 +604,7 @@
     <div class="feat">
       <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient><linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8adfc"/><stop offset="1" stop-color="#bd55f2"/></linearGradient></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><rect x="10" y="29" width="44" height="28" rx="5" fill="url(#fa)"/><rect x="6" y="20" width="52" height="13" rx="5" fill="url(#fb)"/><rect x="10" y="33" width="44" height="3" fill="#3a0560" opacity=".14"/><rect x="27.5" y="20" width="9" height="37" rx="1" fill="#fff" opacity=".95"/><path d="M32 20C26 7 13 9 15.5 15.5 17.5 20 27 20 32 20Z" fill="#fff"/><path d="M32 20C38 7 51 9 48.5 15.5 46.5 20 37 20 32 20Z" fill="#ffd778"/><path d="M12 24h16" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/></svg><b>Gratis tanpa daftar</b><p>Langsung pakai, tanpa akun, tanpa iklan, tanpa watermark.</p></div>
       <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><polygon points="32,8 56,20 32,32 8,20" fill="#e6a8fc"/><polygon points="8,20 32,32 32,57 8,45" fill="#b72df0"/><polygon points="32,32 56,20 56,45 32,57" fill="#8a0abf"/><polygon points="22.9,12.6 46.9,24.6 41.1,27.4 17.1,15.4" fill="#fff" opacity=".88"/><polygon points="41.1,27.4 46.9,24.6 46.9,49.6 41.1,52.4" fill="#ffd778"/><path d="M12 22l16 8" stroke="#fff" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/></svg><b>Paket lengkap</b><p>ICO, PNG, ikon iOS dan Android, manifest, plus kode siap tempel.</p></div>
-      <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="wa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><rect x="6" y="10" width="52" height="42" rx="8" fill="url(#wa)"/><path d="M6 18a8 8 0 0 1 8-8h36a8 8 0 0 1 8 8v4H6z" fill="#ecbcfd"/><circle cx="13" cy="16" r="2.2" fill="#ff7ac8"/><circle cx="20" cy="16" r="2.2" fill="#ffb020"/><circle cx="27" cy="16" r="2.2" fill="#15e99d"/><rect x="10" y="26" width="44" height="22" rx="4" fill="#fff"/><rect x="14" y="30" width="11" height="11" rx="3.5" fill="#ffb020"/><rect x="29" y="31" width="20" height="3.2" rx="1.6" fill="#dcbbf0"/><rect x="29" y="37.5" width="14" height="3.2" rx="1.6" fill="#dcbbf0"/></svg><b>Pratinjau nyata</b><p>Cek di tab terang, tab gelap, dan layar utama HP sebelum diunduh.</p></div>
+      <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="wa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><rect x="6" y="10" width="52" height="42" rx="8" fill="url(#wa)"/><path d="M6 18a8 8 0 0 1 8-8h36a8 8 0 0 1 8 8v4H6z" fill="#ecbcfd"/><circle cx="13" cy="16" r="2.2" fill="#ff7ac8"/><circle cx="20" cy="16" r="2.2" fill="#ffb020"/><circle cx="27" cy="16" r="2.2" fill="#e6a8fc"/><rect x="10" y="26" width="44" height="22" rx="4" fill="#fff"/><rect x="14" y="30" width="11" height="11" rx="3.5" fill="#ffb020"/><rect x="29" y="31" width="20" height="3.2" rx="1.6" fill="#dcbbf0"/><rect x="29" y="37.5" width="14" height="3.2" rx="1.6" fill="#dcbbf0"/></svg><b>Pratinjau nyata</b><p>Cek di tab terang, tab gelap, dan layar utama HP sebelum diunduh.</p></div>
       <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="la" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><path d="M21 28V21a11 11 0 0 1 22 0v7" fill="none" stroke="#ecbcfd" stroke-width="6" stroke-linecap="round"/><rect x="12" y="27" width="40" height="30" rx="8" fill="url(#la)"/><path d="M17 33c0-2 1.5-3.5 3.5-3.5h8" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/><circle cx="32" cy="41" r="4.2" fill="#2a0845"/><rect x="30" y="42" width="4" height="9" rx="2" fill="#2a0845"/></svg><b>Diproses di browser</b><p>Gambar dan teksmu tidak dikirim ke server mana pun.</p></div>
     </div>
   </section>
@@ -603,10 +613,10 @@
     <h2 id="uc-t">Cocok untuk apa saja</h2>
     <div class="uc">
       <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="10" y="30" width="44" height="26" rx="3" fill="url(#us1)"/><path d="M8 20L13 8h38l5 12z" fill="#ffb020"/><path d="M21 8l-2 12M32 8v12M43 8l2 12" stroke="#fff" stroke-opacity=".55" stroke-width="4"/><path d="M8 20h48v3a6 6 0 0 1-12 0 6 6 0 0 1-12 0 6 6 0 0 1-12 0 6 6 0 0 1-12 0z" fill="#ff9a1f"/><rect x="25" y="38" width="14" height="18" rx="2" fill="#fff" opacity=".95"/><rect x="14" y="36" width="8" height="8" rx="2" fill="#fff" opacity=".4"/></svg>Website bisnis</div>
-      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="28" y="8" width="12" height="13" rx="3" fill="#15e99d"/><path d="M6 10h8l6 28h28" fill="none" stroke="#8a0abf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18h42l-5 20H21z" fill="url(#us2)"/><path d="M22 23h30" stroke="#fff" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="50" r="4.6" fill="#2a0845"/><circle cx="46" cy="50" r="4.6" fill="#2a0845"/></svg>Toko online</div>
+      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="28" y="8" width="12" height="13" rx="3" fill="#e6a8fc"/><path d="M6 10h8l6 28h28" fill="none" stroke="#8a0abf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18h42l-5 20H21z" fill="url(#us2)"/><path d="M22 23h30" stroke="#fff" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="50" r="4.6" fill="#2a0845"/><circle cx="46" cy="50" r="4.6" fill="#2a0845"/></svg>Toko online</div>
       <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="12" y="8" width="34" height="46" rx="5" fill="#fff"/><rect x="12" y="8" width="34" height="46" rx="5" fill="none" stroke="#ecbcfd" stroke-width="1.5"/><rect x="18" y="16" width="22" height="4.5" rx="2.2" fill="#ac0cea"/><rect x="18" y="26" width="22" height="3" rx="1.5" fill="#dcbbf0"/><rect x="18" y="32" width="22" height="3" rx="1.5" fill="#dcbbf0"/><rect x="18" y="38" width="14" height="3" rx="1.5" fill="#dcbbf0"/><g transform="rotate(30 46 38)"><rect x="42" y="20" width="9" height="32" rx="2" fill="#ffb020"/><path d="M42 52h9l-4.5 8z" fill="#ffe3a1"/><rect x="42" y="20" width="9" height="6" rx="2" fill="#ff7ac8"/></g></svg>Blog</div>
       <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><path d="M24 20v-4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v4" fill="none" stroke="#8a0abf" stroke-width="4"/><rect x="6" y="20" width="52" height="34" rx="7" fill="url(#us4)"/><path d="M6 34h52" stroke="#3a0560" stroke-opacity=".25" stroke-width="2"/><rect x="28" y="31" width="8" height="7" rx="2" fill="#ffb020"/><path d="M12 26h16" stroke="#fff" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/></svg>Portofolio</div>
-      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="18" y="6" width="28" height="50" rx="7" fill="url(#us5)"/><rect x="22" y="12" width="20" height="38" rx="3" fill="#fff"/><rect x="25" y="16" width="6" height="6" rx="2" fill="#ffb020"/><rect x="33" y="16" width="6" height="6" rx="2" fill="#15e99d"/><rect x="25" y="24" width="6" height="6" rx="2" fill="#ff7ac8"/><rect x="33" y="24" width="6" height="6" rx="2" fill="#c75cf5"/><rect x="25" y="36" width="14" height="4" rx="2" fill="#dcbbf0"/><rect x="25" y="43" width="9" height="3" rx="1.5" fill="#dcbbf0"/></svg>Aplikasi web</div>
+      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="18" y="6" width="28" height="50" rx="7" fill="url(#us5)"/><rect x="22" y="12" width="20" height="38" rx="3" fill="#fff"/><rect x="25" y="16" width="6" height="6" rx="2" fill="#ffb020"/><rect x="33" y="16" width="6" height="6" rx="2" fill="#e6a8fc"/><rect x="25" y="24" width="6" height="6" rx="2" fill="#ff7ac8"/><rect x="33" y="24" width="6" height="6" rx="2" fill="#c75cf5"/><rect x="25" y="36" width="14" height="4" rx="2" fill="#dcbbf0"/><rect x="25" y="43" width="9" height="3" rx="1.5" fill="#dcbbf0"/></svg>Aplikasi web</div>
       <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6cdf6"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><path d="M22 30l-9 10 2 7 9-5z" fill="#ac0cea"/><path d="M42 30l9 10-2 7-9-5z" fill="#ac0cea"/><path d="M26 38h12l-6 16z" fill="#ffb020"/><path d="M29 38h6l-3 9z" fill="#ffe3a1"/><path d="M32 6c9 7 12 17 10 30H22C20 23 23 13 32 6z" fill="url(#us6)"/><path d="M32 6c4 3 7 7 9 12H23c2-5 5-9 9-12z" fill="#ff4fd8"/><circle cx="32" cy="25" r="5" fill="#ac0cea"/><circle cx="32" cy="25" r="3" fill="#e6a8fc"/></svg>Landing page</div>
     </div>
   </section>
@@ -682,7 +692,7 @@
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var DEF = { bg: '#ac0cea', bg2: '#ff4fd8', fgc: '#ffffff', grad: false, shape: 'rd', font: 'mont', scale: 'm', transp: false };
-  var S = { t: 'text', shape: DEF.shape, font: DEF.font, scale: DEF.scale, grad: DEF.grad, transp: DEF.transp, img: null };
+  var S = { t: 'text', shape: DEF.shape, font: DEF.font, scale: DEF.scale, grad: DEF.grad, transp: DEF.transp, img: null, rm: false, tol: 40, sharp: true };
   var FONTS = {
     mont: { fam: "Montserrat, Inter, Arial, sans-serif", w: 800, spec: "800 40px Montserrat" },
     inter: { fam: "Inter, Arial, sans-serif", w: 700, spec: "700 40px Inter" },
@@ -722,8 +732,6 @@
     n.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
     addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
     addEventListener('scroll', function () { t.classList.toggle('sc', scrollY > 8); }, { passive: true });
-    var db = $('dd-btn'), dw = $('dd-list');
-    db.addEventListener('click', function () { var o = !dw.classList.contains('open'); dw.classList.toggle('open', o); db.setAttribute('aria-expanded', o); });
   })();
 
   /* ====== Utilitas ====== */
@@ -787,6 +795,42 @@
     ctx.restore();
   }
   function paintTo(cv, px, s, c, o) { cv.width = px; cv.height = px; drawIcon(cv.getContext('2d'), px, s, c, o); }
+
+  /* Ikon kecil: gambar besar, kecilkan bertahap, lalu tajamkan */
+  function mk(w, h) { var c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
+  function shrink(src, sw, sh, tw, th) {
+    var cur = src, cw = sw, ch = sh, n, g;
+    while (cw / 2 >= tw && ch / 2 >= th) {
+      n = mk(Math.round(cw / 2), Math.round(ch / 2)); g = n.getContext('2d');
+      g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.drawImage(cur, 0, 0, n.width, n.height);
+      cur = n; cw = n.width; ch = n.height;
+    }
+    n = mk(tw, th); g = n.getContext('2d');
+    g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.drawImage(cur, 0, 0, tw, th);
+    return n;
+  }
+  function sharpen(cv, amt) {
+    var w = cv.width, h = cv.height, g = cv.getContext('2d'), im = g.getImageData(0, 0, w, h), d = im.data, o0 = new Uint8ClampedArray(d), x, y;
+    function L(k) { return .299 * o0[k] + .587 * o0[k + 1] + .114 * o0[k + 2]; }
+    for (y = 0; y < h; y++) for (x = 0; x < w; x++) {
+      var k = (y * w + x) * 4; if (o0[k + 3] < 8) continue;
+      var lc = L(k), sum = 0, q, kk, nb = [(y * w + (x > 0 ? x - 1 : x)) * 4, (y * w + (x < w - 1 ? x + 1 : x)) * 4, ((y > 0 ? y - 1 : y) * w + x) * 4, ((y < h - 1 ? y + 1 : y) * w + x) * 4];
+      for (q = 0; q < 4; q++) { kk = nb[q]; sum += o0[kk + 3] < 8 ? lc : L(kk); }
+      var dl = amt * (4 * lc - sum);
+      d[k] = o0[k] + dl; d[k + 1] = o0[k + 1] + dl; d[k + 2] = o0[k + 2] + dl;
+    }
+    g.putImageData(im, 0, 0);
+    return cv;
+  }
+  function crisp(px, s, c, o) {
+    if (!S.sharp || px > 64) { var c0 = mk(px, px); paintTo(c0, px, s, c, o); return c0; }
+    var big = mk(px * 8, px * 8); paintTo(big, px * 8, s, c, o);
+    return sharpen(shrink(big, big.width, big.height, px, px), px <= 32 ? .4 : .3);
+  }
+  function paintCrisp(el, px, s, c, o) {
+    var src = crisp(px, s, c, o); el.width = px; el.height = px; el.getContext('2d').drawImage(src, 0, 0);
+  }
+  function dpr() { var v = window.visualViewport; return Math.min(8, (window.devicePixelRatio || 1) * (v && v.scale ? v.scale : 1)); }
 
   function svgString() {
     var s = style(), c = content(), N = 512, r = RAD[s.shape] * N, defs = '', fill = s.bg;
@@ -875,12 +919,13 @@
     var title = $('f-site').value.trim() || 'Situs Kamu';
     [].forEach.call(document.querySelectorAll('.ttl'), function (el) { el.textContent = title; });
     [].forEach.call(document.querySelectorAll('canvas[data-css]'), function (el) {
-      var css = +el.dataset.css, px = Math.max(css * (el.dataset.ios ? 3 : 2), 32);
-      el.style.width = css + 'px'; el.style.height = css + 'px';
-      if (ok) paintTo(el, px, s, c, { apple: !!el.dataset.ios });
+      var css = +el.dataset.css, r = dpr(), px = el.dataset.ios ? Math.max(css * 3, Math.round(css * r)) : Math.max(Math.round(css * r), css);
+      var cs = !el.dataset.ios && r >= 1 ? px / r : css;
+      el.style.width = cs + 'px'; el.style.height = cs + 'px';
+      if (ok) paintCrisp(el, px, s, c, { apple: !!el.dataset.ios });
       else { el.width = px; el.height = px; }
     });
-    if (ok) paintTo($('cv'), 480, s, c);
+    if (ok) { var cw0 = $('cv').getBoundingClientRect().width; paintCrisp($('cv'), cw0 ? Math.max(64, Math.round(cw0 * dpr())) : 480, s, c); }
     setBtns(ok); note(ok ? warn(c) : '');
     $('snip').textContent = snippet();
     $('svg-hint').hidden = S.t !== 'text';
@@ -895,6 +940,8 @@
     $('row-bg2').hidden = !S.grad;
     $('row-fgc').hidden = S.t !== 'text';
     $('img-del').hidden = !S.img;
+    $('row-rm').hidden = !(S.t === 'image' && S.img);
+    $('rm-tol').hidden = !S.rm;
     $('img-thumb').hidden = !S.img;
     if (S.img) $('img-thumb').src = S.img.url;
     $('img-pick-t').textContent = S.img ? 'Ganti' : 'Pilih gambar';
@@ -907,6 +954,7 @@
     });
   }
   group('shape', 'shape'); group('scale', 'scale'); group('font', 'font');
+  group('sharp', 'sharp', function (v) { return v === '1'; });
   group('gs', 'grad', function (v) { return v === '1'; });
   group('tr', 'transp', function (v) { return v === '1'; });
 
@@ -929,7 +977,7 @@
 
   /* Gambar */
   $('img-pick').addEventListener('click', function () { $('f-img').click(); });
-  $('img-del').addEventListener('click', function () { S.img = null; $('f-img').value = ''; syncUI(); render(); });
+  $('img-del').addEventListener('click', function () { S.img = null; S.rm = false; setGroup('rm', '0'); $('f-img').value = ''; syncUI(); render(); });
   $('f-img').addEventListener('change', function () {
     var input = this, f = input.files && input.files[0];
     if (!f) return;
@@ -941,9 +989,8 @@
         var w = im.naturalWidth || 256, h = im.naturalHeight || 256, mx = Math.max(w, h);
         var sc = (f.type === 'image/svg+xml' && mx < 256) ? 512 / mx : Math.min(1, 512 / mx);
         var cw = Math.max(1, Math.round(w * sc)), ch = Math.max(1, Math.round(h * sc));
-        var cv = document.createElement('canvas'); cv.width = cw; cv.height = ch;
-        cv.getContext('2d').drawImage(im, 0, 0, cw, ch);
-        S.img = { cv: cv, url: cv.toDataURL('image/png'), w: cw, h: ch };
+        var cv = shrink(im, w, h, cw, ch);
+        S.img = { cv: cv, url: cv.toDataURL('image/png'), w: cw, h: ch }; S.img.o = cv; S.img.ou = S.img.url; S.rm = false; setGroup('rm', '0');
         input.value = ''; syncUI(); render();
       };
       im.onerror = function () { toast('Gambar tidak bisa dibaca'); input.value = ''; };
@@ -952,6 +999,73 @@
     fr.onerror = function () { toast('Gambar tidak bisa dibaca'); };
     fr.readAsDataURL(f);
   });
+
+  /* Hapus latar gambar */
+  function removeBg(src, tol) {
+    var w = src.width, h = src.height, n = w * h, cv = document.createElement('canvas'), x, y, i;
+    cv.width = w; cv.height = h;
+    var cx = cv.getContext('2d'); cx.drawImage(src, 0, 0);
+    var im = cx.getImageData(0, 0, w, h), d = im.data, cnt = {}, best = null, tot = 0;
+    function edge(px) {
+      var k = px * 4; if (d[k + 3] < 16) return;
+      var key = ((d[k] >> 4) << 8) | ((d[k + 1] >> 4) << 4) | (d[k + 2] >> 4);
+      var o = cnt[key] || (cnt[key] = { n: 0, r: 0, g: 0, b: 0 });
+      o.n++; o.r += d[k]; o.g += d[k + 1]; o.b += d[k + 2]; tot++;
+      if (!best || o.n > best.n) best = o;
+    }
+    for (x = 0; x < w; x++) { edge(x); edge((h - 1) * w + x); }
+    for (y = 1; y < h - 1; y++) { edge(y * w); edge(y * w + w - 1); }
+    var br = 0, bg = 0, bb = 0, solid = false, t2 = tol * tol;
+    if (best) { br = best.r / best.n; bg = best.g / best.n; bb = best.b / best.n; solid = best.n / tot > .5; }
+    function d2(k) { var a = d[k] - br, b = d[k + 1] - bg, c = d[k + 2] - bb; return a * a + b * b + c * c; }
+    function isBg(px) { var k = px * 4; return d[k + 3] < 16 || (best && d2(k) <= t2); }
+    var seen = new Uint8Array(n), st = new Int32Array(n), sp = 0;
+    function push(q) { if (!seen[q] && isBg(q)) { seen[q] = 1; st[sp++] = q; } }
+    for (x = 0; x < w; x++) { push(x); push((h - 1) * w + x); }
+    for (y = 1; y < h - 1; y++) { push(y * w); push(y * w + w - 1); }
+    while (sp) {
+      var px = st[--sp]; x = px % w; y = (px - x) / w;
+      if (x > 0) push(px - 1); if (x < w - 1) push(px + 1);
+      if (y > 0) push(px - w); if (y < h - 1) push(px + w);
+    }
+    var removed = 0, soft = tol * 1.5;
+    for (i = 0; i < n; i++) if (seen[i]) { d[i * 4 + 3] = 0; removed++; }
+    if (best) for (i = 0; i < n; i++) {
+      if (seen[i]) continue;
+      x = i % w; y = (i - x) / w;
+      if ((x > 0 && seen[i - 1]) || (x < w - 1 && seen[i + 1]) || (y > 0 && seen[i - w]) || (y < h - 1 && seen[i + w])) {
+        var k = i * 4, dist = Math.sqrt(d2(k));
+        if (dist < soft) d[k + 3] = Math.round(d[k + 3] * Math.max(0, (dist - tol) / (soft - tol)));
+      }
+    }
+    cx.putImageData(im, 0, 0);
+    return { cv: cv, removed: removed / n, solid: solid, had: !!best };
+  }
+  function bgApply(announce) {
+    if (!S.img) return;
+    if (!S.rm) { S.img.cv = S.img.o; S.img.url = S.img.ou; syncUI(); render(); return; }
+    var r = removeBg(S.img.o, S.tol);
+    if (r.removed > .97) {
+      S.rm = false; setGroup('rm', '0'); S.img.cv = S.img.o; S.img.url = S.img.ou;
+      toast('Hampir semua gambar ikut terhapus, coba gambar dengan latar polos'); syncUI(); render(); return;
+    }
+    S.img.cv = r.cv; S.img.url = r.cv.toDataURL('image/png');
+    if (announce) {
+      var msg = 'Latar gambar dihapus';
+      if (r.had && r.removed < .001) msg = 'Belum ada latar yang terhapus, coba naikkan toleransi';
+      else {
+        if (!S.transp) { S.transp = true; setGroup('tr', '1'); msg = 'Latar dihapus, latar ikon dibuat transparan'; }
+        if (r.had && !r.solid) msg = 'Latar gambar tidak polos, hasil mungkin kurang rapi';
+      }
+      toast(msg);
+    }
+    syncUI(); render();
+  }
+  $('rm').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b || !S.img) return;
+    S.rm = b.dataset.v === '1'; setGroup('rm', b.dataset.v); bgApply(true);
+  });
+  $('f-tol').addEventListener('input', function () { S.tol = +this.value; $('tol-v').textContent = S.tol; if (S.rm) bgApply(false); });
 
   /* Studio */
   $('stabs').addEventListener('click', function (e) {
@@ -1041,9 +1155,7 @@
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
   }
-  function iconCanvas(size, o) {
-    var cv = document.createElement('canvas'); paintTo(cv, size, style(), content(), o); return cv;
-  }
+  function iconCanvas(size, o) { return crisp(size, style(), content(), o); }
   function pngBlob(size, o) { return new Promise(function (res) { iconCanvas(size, o).toBlob(res, 'image/png'); }); }
   function pngBytes(size, o) { return pngBlob(size, o).then(function (b) { return b.arrayBuffer(); }).then(function (a) { return new Uint8Array(a); }); }
 
@@ -1126,6 +1238,9 @@
     }, function () {});
   }
   addEventListener('load', render);
+  var rz; function reflow() { clearTimeout(rz); rz = setTimeout(render, 120); }
+  addEventListener('resize', reflow);
+  if (window.visualViewport) visualViewport.addEventListener('resize', reflow);
 })();
 </script>
 </body>
