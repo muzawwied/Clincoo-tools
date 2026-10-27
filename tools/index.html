@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Clincoo Favicon — Buat favicon gratis</title>
+<meta name="description" content="Buat favicon website dari teks, emoji, atau gambar. Gratis, tanpa daftar, tanpa watermark. Unduh ICO, PNG, SVG, atau paket lengkap siap pasang.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2048%2048'%3E%3Crect%20width='48'%20height='48'%20rx='14'%20fill='%23ac0cea'/%3E%3Cpath%20d='M566%20476Q553%20559%20510%20601Q468%20643%20398%20644Q346%20644%20307%20620Q268%20596%20242%20556Q217%20516%20204%20465Q192%20414%20192%20360Q192%20274%20216%20208Q241%20141%20288%20103Q335%2065%20402%2065Q465%2065%20527%2098Q589%20130%20631%20188L679%20144Q630%2077%20576%2042Q522%208%20470%20-4Q419%20-16%20378%20-16Q301%20-16%20238%2012Q175%2039%20130%2088Q84%20136%2060%20200Q35%20265%2035%20340Q35%20408%2057%20475Q79%20542%20122%20596Q166%20651%20232%20684Q298%20716%20385%20716Q424%20716%20470%20704Q517%20691%20558%20667L554%20709H631V476Z'%20transform='translate(10.84%2037.39)%20scale(0.03825%20-0.03825)'%20fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&family=Playfair+Display:wght@800&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+<script>
+(function () {
+  try {
+    var p = localStorage.getItem('clq_theme') || 'light';
+    var d = p === 'dark' || (p !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+    if (d) document.documentElement.classList.add('dark-mode');
+  } catch (e) {}
+})();
+</script>
+<script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+<style>
+  :root { --page:#fff; --bg:#f1f5fb; --fg:#0f172a; --mut:#64748b; --card:#fff; --card2:#e4ecf8; --line:#e3e9f3; --inv:#fff; --sec:#94a3b8; --warn:#b45309; --warnbg:rgba(245,158,11,.14); --ac:#ac0cea; --ac2:#8a0abf; --acs:rgba(172,12,234,.1); --r:20px; }
+  .dark-mode { --page:#0b0f17; --bg:#161c28; --fg:#eef2f8; --mut:#8c98ab; --card:#111722; --card2:#1f2837; --line:#222b3a; --inv:#0b0f17; --sec:#6b7789; --warn:#fbbf24; --warnbg:rgba(245,158,11,.16); --ac:#c35cf2; --ac2:#ac0cea; --acs:rgba(195,92,242,.16); }
+  * { box-sizing: border-box; margin: 0; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  a { color: inherit; text-decoration: none; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  html, body { min-height: 100%; background: var(--page); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+  body { overflow-x: clip; }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+  @keyframes vin { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* Header */
+  .top { position: sticky; top: 0; z-index: 5; padding-top: env(safe-area-inset-top, 0px); background: color-mix(in srgb, var(--page) 86%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+  .top.open { background: var(--page); }
+  .top-in { max-width: 1120px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; gap: 10px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -.03em; }
+  .logo { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; flex: none; color: var(--ac); }
+  .logo svg { width: 100%; height: 100%; display: block; }
+  .menu-btn { position: relative; margin-left: auto; margin-right: -6px; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; font-size: 24px; color: var(--fg); }
+  .menu-btn:hover { color: var(--ac); }
+  .menu-btn .m-c, .top.open .menu-btn .m-o { display: none; }
+  .top.open .menu-btn .m-c { display: block; }
+
+  /* Menu turun dari atas */
+  .nav-bd { position: fixed; inset: 0; z-index: 3; background: rgba(15,23,42,.35); opacity: 0; visibility: hidden; transition: opacity .25s, visibility 0s .25s; }
+  .nav-bd.on { opacity: 1; visibility: visible; transition: opacity .25s; }
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 4; max-height: 100dvh; overflow-y: auto; overscroll-behavior: contain; padding: calc(env(safe-area-inset-top, 0px) + 64px) 16px 18px; background: var(--page); border-radius: 0 0 28px 28px; box-shadow: 0 24px 48px rgba(15,23,42,.16); transform: translateY(-105%); visibility: hidden; transition: transform .3s cubic-bezier(.2,.7,.2,1), visibility 0s .3s; }
+  .nav.open { transform: none; visibility: visible; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  .nav-in { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+  .nav-sec { display: flex; flex-direction: column; gap: 8px; }
+  .sec { margin: 0 4px 2px; font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sec); }
+  .nav a { display: flex; align-items: center; justify-content: space-between; height: 52px; padding: 0 20px; border-radius: 9999px; background: var(--bg); font-size: 15.5px; font-weight: 600; transition: background-color .15s, color .15s, transform .12s; }
+  .nav a:hover { background: var(--ac); color: #fff; }
+  .nav a:active { transform: scale(.98); }
+  .nav a i { font-size: 18px; color: var(--ac); }
+  .nav a:hover i { color: #fff; }
+  .nav-dd { display: flex; align-items: center; gap: 12px; width: 100%; height: 52px; padding: 0 20px; border-radius: 9999px; background: var(--bg); font-size: 15.5px; font-weight: 600; text-align: left; transition: background-color .15s, color .15s; }
+  .nav-dd > i:first-child { font-size: 18px; color: var(--ac); }
+  .nav-dd span { flex: 1; }
+  .nav-dd .car { font-size: 16px; color: var(--mut); transition: transform .2s; }
+  .nav-dd:hover { color: var(--ac); }
+  .nav-dd[aria-expanded="true"] { background: var(--acs); color: var(--ac); }
+  .nav-dd[aria-expanded="true"] .car { transform: rotate(180deg); color: var(--ac); }
+  .dd-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .26s cubic-bezier(.2,.7,.2,1); }
+  .dd-wrap.open { grid-template-rows: 1fr; }
+  .dd-in { min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 4px; }
+  .nav .dd-in a:first-child { margin-top: 8px; }
+  .nav .dd-in a { justify-content: flex-start; gap: 12px; height: 46px; padding: 0 20px; background: none; font-size: 14.5px; font-weight: 500; }
+  .nav .dd-in a:hover { background: var(--acs); color: var(--ac); }
+  .nav .dd-in a span { flex: 1; }
+  .nav .dd-in a i { font-size: 18px; color: var(--ac); }
+  .nav .dd-in a i:last-child { font-size: 15px; color: var(--sec); }
+  .nav .dd-in a:hover i:last-child { color: var(--ac); }
+  .nav .dd-in a[aria-current] { background: var(--acs); color: var(--ac); }
+  .nav .dd-in a[aria-current] i:last-child { color: var(--ac); }
+  .nav .dd-in a i.lg-cat { display: flex; flex: none; width: 24px; height: 24px; border-radius: 50%; box-shadow: 0 0 0 1px var(--line); }
+  .nav .dd-in a i.lg-cat svg { display: block; width: 100%; height: 100%; }
+  .nav .dd-in a i.lg-ai { display: flex; flex: none; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px var(--line); }
+  .nav .dd-in a i.lg-ai svg { display: block; width: 15px; height: 15px; }
+  .nav .dd-in a i.lg-tile { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; background: #111; box-shadow: 0 0 0 1px var(--line); }
+  .nav .dd-in a i.lg-tile svg { display: block; width: 15px; height: 15px; }
+  .nav .dd-in a i.lg-qr, .nav .dd-in a i.lg-fav { display: flex; flex: none; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; background: var(--ac); color: #fff; }
+  .nav .dd-in a i.lg-qr svg { display: block; width: 15px; height: 15px; }
+  .nav .dd-in a i.lg-fav { background: none; }
+  .nav .dd-in a i.lg-fav svg { display: block; width: 24px; height: 24px; }
+  .seg { display: flex; gap: 2px; padding: 3px; border-radius: 14px; background: var(--bg); }
+  .seg .chip { flex: 1 1 0; min-width: 0; height: 34px; padding: 0 6px; border-radius: 11px; font-size: 12.5px; background: transparent; }
+  .nav .seg { padding: 4px; border-radius: 9999px; }
+  .nav .seg .chip { height: 40px; border-radius: 9999px; font-size: 13.5px; }
+  @media (prefers-reduced-motion: reduce) { .nav, .nav-bd, .dd-wrap { transition: none; } }
+
+  main { max-width: 1120px; margin: 0 auto; padding: 0 20px calc(48px + env(safe-area-inset-bottom, 0px)); animation: vin .22s cubic-bezier(.2,.7,.2,1); }
+
+  /* Hero */
+  .hero { position: relative; text-align: center; padding: 56px 0 44px; }
+  .hero h1 { max-width: 780px; margin: 0 auto 14px; font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 6vw, 56px); font-weight: 800; line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
+  .hero h1 em { font-style: normal; color: var(--ac); }
+  .hero p { max-width: 560px; margin: 0 auto; font-size: clamp(15px, 2vw, 17px); line-height: 1.6; color: var(--mut); text-wrap: pretty; }
+  .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
+  .hero-cta a { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 24px; border-radius: 9999px; font-size: 15px; font-weight: 600; transition: transform .12s, background-color .15s; }
+  .hero-cta a:active { transform: scale(.97); }
+  .hero-cta .p { background: var(--ac); color: #fff; box-shadow: 0 8px 22px rgba(172,12,234,.3); }
+  .hero-cta .p:hover { background: var(--ac2); }
+  .hero-cta .s { background: var(--bg); }
+  .hero-cta .s:hover { background: var(--card2); }
+  #buat { scroll-margin-top: 84px; }
+
+  .stack { display: flex; flex-direction: column; gap: 12px; }
+
+
+  /* Chip */
+  .chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 36px; padding: 0 14px; border-radius: 9999px; background: var(--bg); color: var(--fg); font-size: 13px; font-weight: 500; white-space: nowrap; transition: background-color .15s, color .15s, transform .12s; }
+  .chip i { font-size: 16px; color: var(--mut); }
+  .chip:hover { background: var(--acs); color: var(--ac); }
+  .chip:active { transform: scale(.97); }
+  .chip[aria-pressed="true"], .chip[aria-pressed="true"]:hover { background: var(--ac); color: #fff; }
+  .chip[aria-pressed="true"] i { color: #fff; }
+  .tabs { margin-bottom: 14px; }
+  .tabs .chip { height: 40px; padding: 0 16px; font-size: 14px; }
+  .seg .chip[aria-pressed="true"], .seg .chip[aria-pressed="true"]:hover { background: var(--ac); color: #fff; }
+
+  /* Kartu */
+  .card { display: flex; flex-direction: column; gap: 2px; border-radius: var(--r); overflow: hidden; background: var(--line); border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(15,23,42,.05); }
+  .dark-mode .card { box-shadow: none; }
+  .row { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px; background: var(--card); }
+  .row.h { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
+  .lb { font-size: 13px; font-weight: 500; color: var(--mut); }
+  .row.h .lb { color: var(--fg); font-size: 14.5px; }
+  .hint { font-size: 12.5px; line-height: 1.45; color: var(--mut); }
+  .fld { position: relative; }
+  input[type="text"] { width: 100%; height: 46px; padding: 0 16px; border: 1px solid transparent; border-radius: 9999px; background: var(--bg); color: var(--fg); font: inherit; font-size: 16px; outline: none; -webkit-appearance: none; appearance: none; transition: border-color .15s, box-shadow .15s; }
+  input::placeholder { color: var(--mut); opacity: .8; }
+  input:focus { border-color: var(--ac); background: var(--card); box-shadow: 0 0 0 4px var(--acs); }
+  .big-in { height: 56px !important; font-size: 22px !important; font-weight: 700; text-align: center; }
+  .emojis { display: flex; flex-wrap: wrap; gap: 6px; }
+  .emojis button { width: 42px; height: 42px; border-radius: 12px; background: var(--bg); font-size: 21px; line-height: 1; transition: background-color .15s, transform .12s; }
+  .emojis button:hover { background: var(--acs); }
+  .emojis button:active { transform: scale(.94); }
+  .pick { display: flex; align-items: center; gap: 8px; }
+  .pick .chip { height: 38px; padding: 0 16px; font-size: 13.5px; border-radius: 12px; }
+  .pick .thumb { width: 38px; height: 38px; border-radius: 12px; object-fit: contain; background: var(--bg); box-shadow: 0 0 0 1px var(--line); flex: none; }
+
+  /* Hasil */
+  .out { display: flex; flex-direction: column; align-items: center; }
+  .pv { position: relative; display: flex; align-items: center; justify-content: center; width: min(100%, 220px); aspect-ratio: 1; border-radius: 24px; background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 18px 44px rgba(172,12,234,.1); }
+  .dark-mode .pv { box-shadow: 0 0 0 1px var(--line); }
+  .pv.chk { background: repeating-conic-gradient(#d9dee7 0 25%, #fff 0 50%) 0 0 / 16px 16px; }
+  .pv canvas { display: block; width: 68%; height: 68%; }
+  .ph-empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 24px; text-align: center; color: var(--mut); font-size: 13.5px; line-height: 1.45; }
+  .ph-empty i { font-size: 38px; }
+  .note { display: flex; align-items: flex-start; gap: 8px; width: min(100%, 360px); margin-top: 16px; padding: 10px 12px; border-radius: 14px; background: var(--warnbg); color: var(--warn); font-size: 12.5px; line-height: 1.45; }
+  .note i { flex: none; font-size: 16px; margin-top: 1px; }
+  .acts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: min(100%, 360px); margin-top: 22px; }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 6px; height: 46px; padding: 0 6px; border-radius: 9999px; background: var(--bg); color: var(--fg); font-size: 13.5px; font-weight: 600; transition: opacity .15s, transform .12s, background-color .15s, color .15s; }
+  .btn i { font-size: 17px; color: var(--ac); }
+  .btn:hover { background: var(--acs); color: var(--ac); }
+  .btn:active { transform: scale(.98); }
+  .btn.pri { grid-column: 1 / -1; height: 52px; font-size: 15px; background: var(--ac); color: #fff; box-shadow: 0 8px 20px rgba(172,12,234,.25); }
+  .btn.pri i { color: #fff; }
+  .btn.pri:hover { background: var(--ac2); color: #fff; }
+  .btn.sm { height: 40px; font-size: 13.5px; padding: 0 16px; }
+  .btn[disabled] { opacity: .4; pointer-events: none; }
+  .svg-hint { width: min(100%, 360px); margin-top: 10px; }
+
+  /* Pratinjau tab, layar HP */
+  .mock { display: flex; flex-direction: column; gap: 12px; width: min(100%, 360px); margin-top: 28px; }
+  .bm { border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+  .tabbar { display: flex; align-items: flex-end; gap: 2px; padding: 8px 8px 0; background: #dfe3ea; }
+  .tab { display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 10px; border-radius: 10px 10px 0 0; font-size: 12.5px; color: #5f6368; width: 150px; min-width: 0; }
+  .tab .ttl { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tab canvas { width: 16px; height: 16px; flex: none; }
+  .tab .gl { width: 16px; height: 16px; flex: none; border-radius: 50%; background: currentColor; opacity: .25; }
+  .tab .x { flex: none; font-size: 12px; opacity: .6; color: inherit; }
+  .tab.on { background: #fff; color: #202124; }
+  .strip { display: flex; align-items: center; height: 38px; padding: 0 12px; background: #fff; }
+  .strip .url { flex: 1; padding: 5px 14px; border-radius: 9999px; background: #f1f3f4; color: #5f6368; font-size: 12px; }
+  .bm.dark .tabbar { background: #202124; }
+  .bm.dark .tab { color: #9aa0a6; }
+  .bm.dark .tab.on { background: #35363a; color: #e8eaed; }
+  .bm.dark .strip { background: #35363a; }
+  .bm.dark .strip .url { background: #202124; color: #bdc1c6; }
+  .sizes { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding: 16px; border-radius: 18px; background: var(--bg); }
+  .sizes figure { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .sizes figcaption { font-size: 11.5px; color: var(--mut); }
+  .sizes canvas { display: block; }
+  .sizes canvas.ios { border-radius: 22.4%; }
+  .code { display: flex; flex-direction: column; gap: 8px; width: min(100%, 360px); margin-top: 24px; }
+  .code-h { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .code-h .lb { color: var(--fg); font-weight: 600; }
+  pre { margin: 0; padding: 12px 14px; border-radius: 14px; background: var(--bg); color: var(--fg); font: 12px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-x: auto; white-space: pre; }
+
+  /* Warna */
+  .clr { display: flex; align-items: center; gap: 10px; border-radius: 9999px; padding: 3px 3px 3px 8px; }
+  .clr:hover { background: var(--card2); }
+  .clr .cs { width: 32px; height: 32px; border-radius: 9999px; box-shadow: 0 0 0 1px var(--line); background: #111; }
+  .clr code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; color: var(--mut); }
+  .cp { position: fixed; inset: 0; z-index: 20; }
+  .cp-bd { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+  .cp-sheet { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: min(100%, 360px); padding: 18px 18px calc(18px + env(safe-area-inset-bottom, 0px)); border-radius: 24px 24px 0 0; background: var(--card); box-shadow: 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 14px; animation: vin .18s ease-out; }
+  @media (min-width: 600px) { .cp-sheet { bottom: auto; top: 50%; transform: translate(-50%, -50%); border-radius: 24px; } }
+  .cp-top { display: flex; align-items: center; justify-content: space-between; font-size: 15px; font-weight: 600; }
+  .cp-top button { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9999px; font-size: 18px; color: var(--mut); }
+  .cp-top button:hover { background: var(--card2); color: var(--fg); }
+  .cp-sv { position: relative; height: 180px; border-radius: 14px; touch-action: none; cursor: crosshair; box-shadow: 0 0 0 1px var(--line); }
+  .cp-hue { position: relative; height: 16px; border-radius: 9999px; touch-action: none; background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00); box-shadow: 0 0 0 1px var(--line); }
+  .cp-k { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 9999px; border: 3px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.3); pointer-events: none; }
+  .cp-hue .cp-k { top: 50%; }
+  .cp-hex { display: flex; align-items: center; gap: 10px; }
+  .cp-hex .cs { width: 46px; height: 46px; flex: none; border-radius: 9999px; box-shadow: 0 0 0 1px var(--line); }
+  .cp-hex input { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .cp-pal { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; justify-items: center; }
+  .cp-pal button { width: 34px; height: 34px; border-radius: 9999px; box-shadow: 0 0 0 1px var(--line); }
+  .cp-sheet .btn.pri { grid-column: auto; }
+
+  /* Studio bertab */
+  #stabs { gap: 2px; }
+  #stabs .chip { position: relative; height: 42px; padding: 0 12px; border-radius: 0; background: transparent; color: var(--mut); }
+  #stabs .chip:hover { background: transparent; color: var(--ac); }
+  #stabs .chip i { color: inherit; }
+  #stabs .chip[aria-pressed="true"], #stabs .chip[aria-pressed="true"]:hover { background: transparent; color: var(--ac); font-weight: 600; }
+  #stabs .chip[aria-pressed="true"]::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 0; height: 2px; border-radius: 2px; background: var(--ac); }
+  .g-style .tabs { margin-bottom: 0; }
+  .panel { animation: vin .18s ease-out; }
+  .presets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: var(--r); overflow: hidden; background: var(--line); border: 1px solid var(--line); }
+  .pre { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 6px 14px; background: var(--card); font-size: 12.5px; font-weight: 500; transition: background-color .15s, transform .12s; }
+  .pre:hover { background: var(--card2); }
+  .pre:active { transform: scale(.97); }
+  .pre canvas { width: 60px; height: 60px; }
+  .frs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .frs.c4 { grid-template-columns: repeat(4, 1fr); }
+  .chip.fr { height: auto; padding: 12px 6px; border-radius: 14px; background: var(--bg); box-shadow: inset 0 0 0 2px transparent; flex-direction: column; gap: 4px; }
+  .chip.fr:hover { background: var(--card2); }
+  .chip.fr[aria-pressed="true"], .chip.fr[aria-pressed="true"]:hover { background: var(--bg); color: var(--fg); box-shadow: inset 0 0 0 2px var(--ac); }
+  .chip.fr svg { width: 34px; height: auto; display: block; }
+  .chip.fr .aa { font-size: 24px; line-height: 1.2; }
+
+  /* Seksi bawah */
+  .how, .sx { margin-top: 76px; }
+  .how h2, .sx h2 { margin: 0 0 28px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 32px); font-weight: 800; letter-spacing: -.03em; }
+  .how-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .steps { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+  .steps li { display: flex; align-items: flex-start; gap: 14px; }
+  .steps .n { flex: none; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--ac); color: #fff; font-size: 13px; font-weight: 600; }
+  .steps b { display: block; font-size: 15px; font-weight: 600; line-height: 30px; }
+  .steps p { margin-top: 1px; font-size: 13.5px; line-height: 1.55; color: var(--mut); text-wrap: pretty; }
+  .demo { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .demo figcaption { font-size: 12.5px; color: var(--mut); }
+  .demo .win { width: min(100%, 380px); }
+  .demo .page { padding: 18px 16px 22px; background: var(--card); display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--line); }
+  .demo .page i { display: block; height: 10px; border-radius: 6px; background: var(--bg); }
+  .demo .page i:first-child { width: 46%; height: 16px; background: var(--acs); }
+  .demo .page i:nth-child(3) { width: 80%; }
+  .demo .page i:nth-child(4) { width: 62%; }
+  @media (min-width: 900px) { .how-grid { grid-template-columns: minmax(0, 1fr) 380px; align-items: center; gap: 56px; } }
+  .ico { width: 52px; height: 52px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 18px; background: var(--acs); color: var(--ac); font-size: 26px; }
+  .feat { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  .ft { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+  .ft .i3d { display: block; width: 64px; height: 64px; margin-bottom: 6px; filter: drop-shadow(0 6px 8px rgba(172,12,234,.2)); }
+  .ft b { display: block; font-size: 15.5px; font-weight: 600; }
+  .ft p { max-width: 260px; font-size: 13px; line-height: 1.5; color: var(--mut); text-wrap: pretty; }
+  .uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 10px; }
+  .u { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 4px 0; font-size: 13px; font-weight: 500; text-align: center; }
+  .faq { display: flex; flex-direction: column; max-width: 720px; margin: 0 auto; }
+  .faq details { padding: 0 4px; border-top: 1px solid var(--line); }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; font-size: 16px; font-weight: 600; line-height: 1.4; cursor: pointer; list-style: none; transition: color .15s; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary:hover { color: var(--ac); }
+  .faq summary::after { content: ''; flex: none; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--line); background-color: transparent; background-image: linear-gradient(var(--ac), var(--ac)), linear-gradient(var(--ac), var(--ac)); background-size: 12px 2px, 2px 12px; background-position: center; background-repeat: no-repeat; transition: background-color .15s, border-color .15s, transform .2s; }
+  .faq details[open] summary { color: var(--ac); }
+  .faq details[open] summary::after { background-color: var(--ac); border-color: var(--ac); background-image: linear-gradient(#fff, #fff); background-size: 12px 2px; transform: rotate(180deg); }
+  .faq details p { padding: 0 48px 22px 0; font-size: 14.5px; line-height: 1.7; color: var(--mut); text-wrap: pretty; }
+  @media (min-width: 900px) { .feat { grid-template-columns: repeat(4, 1fr); } .uc { grid-template-columns: repeat(6, 1fr); } }
+  .cta-end { margin-top: 84px; text-align: center; }
+  .cta-end h2 { max-width: 620px; margin: 0 auto 12px; font-family: 'Montserrat', sans-serif; font-size: clamp(26px, 4.5vw, 38px); font-weight: 800; line-height: 1.15; letter-spacing: -.03em; text-wrap: balance; }
+  .cta-end p { max-width: 480px; margin: 0 auto; font-size: 15.5px; line-height: 1.6; color: var(--mut); text-wrap: pretty; }
+
+  /* Footer */
+  .foot { display: block; margin-top: 72px; padding: 48px 0 0; border-top: 1px solid var(--line); font-size: 14px; color: var(--mut); }
+  .foot-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; align-items: start; }
+  .foot-brand, .foot-perk { grid-column: 1 / -1; }
+  .foot .brand { font-size: 19px; color: var(--fg); }
+  .foot-brand p { max-width: 340px; margin-top: 14px; font-size: 14px; line-height: 1.65; text-wrap: pretty; }
+  .foot h3 { margin: 0 0 16px; font-size: 12px; font-weight: 600; letter-spacing: .08em; line-height: 1; text-transform: uppercase; color: var(--sec); }
+  .foot-col { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 0; }
+  .foot-col a { color: var(--fg); font-size: 14.5px; line-height: 1.35; transition: color .15s; }
+  .foot-col a:hover { color: var(--ac); }
+  .foot-col span { display: flex; align-items: flex-start; gap: 10px; color: var(--fg); font-size: 14.5px; line-height: 1.35; }
+  .foot-col span i { flex: none; margin-top: 1px; font-size: 18px; line-height: 1; color: var(--ac); }
+  .foot-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 48px; padding: 20px 0 4px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.4; }
+  @media (min-width: 900px) { .foot-grid { grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 40px; } .foot-brand, .foot-perk { grid-column: auto; } }
+
+  .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 12px); display: flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 9999px; background: var(--ac); color: #fff; font-size: 13.5px; font-weight: 500; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 30; }
+  .toast.on { opacity: 1; transform: translate(-50%, 0); }
+  @media (max-width: 600px) { .hero { padding: 36px 0 32px; } }
+  @media (prefers-reduced-motion: reduce) { main, .panel { animation: none; } .chip, .btn, .toast { transition: none; } }
+
+  /* ===== Susunan baru ===== */
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; align-items: center; text-align: center; padding: 44px 0 40px; }
+  .hero-vis { position: relative; padding: 38px 26px 28px; border-radius: 32px; background: linear-gradient(135deg, rgba(172,12,234,.16), rgba(255,79,216,.12) 55%, rgba(255,176,32,.14)); }
+  #hero-mock { display: flex; flex-direction: column; gap: 14px; max-width: 440px; margin: 0 auto; }
+  #hero-mock .bm { box-shadow: 0 14px 34px rgba(42,8,69,.16); }
+  #hero-mock .bm:nth-child(2) { margin-left: 34px; }
+  .hero-ico { position: absolute; top: -24px; right: 14px; transform: rotate(8deg); filter: drop-shadow(0 12px 14px rgba(42,8,69,.28)); }
+  @media (min-width: 900px) {
+    .hero { grid-template-columns: 1.02fr .98fr; gap: 56px; text-align: left; padding: 64px 0 56px; }
+    .hero h1 { margin: 0 0 16px; }
+    .hero p { margin: 0; }
+    .hero-cta { justify-content: flex-start; }
+  }
+  .bench { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 18px 14px; border-radius: 32px; background: var(--bg); }
+  .bench-l { display: flex; flex-direction: column; gap: 30px; min-width: 0; }
+  @media (min-width: 900px) {
+    .bench { grid-template-columns: minmax(0, 1fr) 400px; gap: 32px; padding: 32px; align-items: start; }
+    .stage { position: sticky; top: 88px; }
+  }
+  .stp { display: flex; align-items: center; gap: 10px; margin: 0 2px 14px; }
+  .stp .n { width: 28px; height: 28px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--ac); color: #fff; font-size: 13px; font-weight: 700; }
+  .stp h3 { font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 800; letter-spacing: -.02em; }
+  #tabs .chip:not([aria-pressed="true"]) { background: var(--card); }
+  .stage { padding: 24px 20px 26px; border-radius: 28px; background: linear-gradient(165deg, #2a0845, #5b0f8f 58%, #ac0cea); color: #fff; box-shadow: 0 24px 50px rgba(91,15,143,.3); }
+  .stage .stp { margin-bottom: 18px; }
+  .stage .stp .n { background: #15e99d; color: #1a0630; }
+  .stage .pv:not(.chk) { background: rgba(255,255,255,.1); }
+  .stage .pv { box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+  .stage .mock { margin-top: 18px; }
+  .stage .sizes { background: rgba(255,255,255,.1); }
+  .stage .sizes figcaption, .stage .ph-empty, .stage .hint { color: rgba(255,255,255,.72); }
+  .stage .btn { background: rgba(255,255,255,.14); color: #fff; }
+  .stage .btn i { color: #fff; }
+  .stage .btn:hover { background: rgba(255,255,255,.26); color: #fff; }
+  .stage .btn.pri { background: #15e99d; color: #1a0630; box-shadow: 0 10px 24px rgba(21,233,157,.28); }
+  .stage .btn.pri i { color: #1a0630; }
+  .stage .btn.pri:hover { background: #3df0b2; color: #1a0630; }
+  .stage .note { background: rgba(255,200,60,.16); color: #ffd778; }
+  @media (max-width: 899px) { .stage { margin-left: -34px; margin-right: -34px; border-radius: 0; } .pv { width: min(100%, 168px); border-radius: 20px; } }
+  .steps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .steps li { flex-direction: column; gap: 14px; padding: 22px; border-radius: 24px; background: var(--bg); }
+  .steps .n { width: 38px; height: 38px; font-size: 15px; font-weight: 700; }
+  .steps b { line-height: 1.3; margin-bottom: 4px; }
+  @media (min-width: 900px) { .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .inst { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
+  .isteps { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+  .isteps li { display: flex; align-items: flex-start; gap: 14px; }
+  .isteps .n { flex: none; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--ac); color: #fff; font-size: 13px; font-weight: 600; }
+  .isteps b { display: block; font-size: 15px; font-weight: 600; line-height: 30px; }
+  .isteps p { margin-top: 1px; font-size: 13.5px; line-height: 1.55; color: var(--mut); text-wrap: pretty; }
+  .inst .code { width: 100%; margin: 0; }
+  .inst pre { padding: 16px 18px; font-size: 13px; }
+  @media (min-width: 900px) { .inst { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; } }
+  .ft .i3d { display: block; width: 64px; height: 64px; margin-bottom: 6px; filter: drop-shadow(0 6px 8px rgba(172,12,234,.2)); }
+  .u { padding: 20px 8px 16px; border-radius: 24px; background: var(--bg); transition: transform .15s, background-color .15s; }
+  .u:hover { transform: translateY(-3px); background: var(--acs); }
+  .u .i3d { display: block; width: 58px; height: 58px; filter: drop-shadow(0 5px 7px rgba(172,12,234,.2)); }
+  .uc { gap: 12px; }
+  @media (max-width: 600px) { .hero { padding: 32px 0 28px; } .stage { padding: 20px 16px 22px; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#"><span class="logo" role="img" aria-label="Logo Clincoo Favicon"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#ac0cea"/><path d="M566 476Q553 559 510 601Q468 643 398 644Q346 644 307 620Q268 596 242 556Q217 516 204 465Q192 414 192 360Q192 274 216 208Q241 141 288 103Q335 65 402 65Q465 65 527 98Q589 130 631 188L679 144Q630 77 576 42Q522 8 470 -4Q419 -16 378 -16Q301 -16 238 12Q175 39 130 88Q84 136 60 200Q35 265 35 340Q35 408 57 475Q79 542 122 596Q166 651 232 684Q298 716 385 716Q424 716 470 704Q517 691 558 667L554 709H631V476Z" transform="translate(10.84 37.39) scale(0.03825 -0.03825)" fill="#fff"/></svg></span>Clincoo Favicon</a>
+    <button class="menu-btn" type="button" id="menu-btn" aria-label="Buka menu" aria-expanded="false" aria-controls="nav"><i class="ph ph-list m-o"></i><i class="ph ph-x m-c"></i></button>
+  </div>
+</header>
+<div class="nav-bd" id="nav-bd"></div>
+<nav class="nav" id="nav" aria-label="Menu utama">
+  <div class="nav-in">
+    <div class="nav-sec">
+      <p class="sec">Jelajahi</p>
+      <a href="#cara">Cara pakai<i class="ph ph-arrow-right"></i></a>
+      <a href="#pasang">Pasang di website<i class="ph ph-arrow-right"></i></a>
+      <a href="#fitur">Fitur<i class="ph ph-arrow-right"></i></a>
+      <a href="#faq">FAQ<i class="ph ph-arrow-right"></i></a>
+    </div>
+    <div class="nav-sec">
+      <button class="nav-dd" type="button" id="dd-btn" aria-expanded="false" aria-controls="dd-list"><i class="ph ph-squares-four"></i><span>Produk</span><i class="ph ph-caret-down car"></i></button>
+      <div class="dd-wrap" id="dd-list">
+        <div class="dd-in">
+          <a href="https://www.clincoo.buzz"><i class="lg-cat"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#fff"/><g fill="#000"><path d="M10 16C7 10 9 7 12 7C14 7 15 11 13 16Z"/><path d="M12 9C10.5 11 11 13 12 14.5C13 13 13.5 11 12 9Z" fill="#fff" opacity=".25"/><path d="M22 16C25 10 23 7 20 7C18 7 17 11 19 16Z"/><path d="M20 9C21.5 11 21 13 20 14.5C19 13 18.5 11 20 9Z" fill="#fff" opacity=".25"/><path d="M16 27C24 27 28 22.5 28 17C28 12.5 21 11.5 16 11.5C11 11.5 4 12.5 4 17C4 22.5 8 27 16 27Z"/></g><circle cx="12.5" cy="17" r="1.5" fill="#fff" opacity=".6"/><circle cx="19.5" cy="17" r="1.5" fill="#fff" opacity=".6"/><polygon points="16,20 15,18.5 17,18.5" fill="#fff" opacity=".5"/></svg></i><span>Clincoo</span><i class="ph ph-arrow-up-right"></i></a>
+          <a href="#"><i class="lg-ai"><svg viewBox="250 250 524 524" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#000"><path d="M512 512C512 380 580 280 680 261C685 380 640 490 512 512Z"/><path d="M512 512C512 380 580 280 680 261C685 380 640 490 512 512Z" transform="rotate(90 512 512)"/><path d="M512 512C512 380 580 280 680 261C685 380 640 490 512 512Z" transform="rotate(180 512 512)"/><path d="M512 512C512 380 580 280 680 261C685 380 640 490 512 512Z" transform="rotate(270 512 512)"/><circle cx="469" cy="293" r="32"/><circle cx="469" cy="293" r="32" transform="rotate(90 512 512)"/><circle cx="469" cy="293" r="32" transform="rotate(180 512 512)"/><circle cx="469" cy="293" r="32" transform="rotate(270 512 512)"/></g></svg></i><span>Clincoo AI</span><i class="ph ph-arrow-up-right"></i></a>
+          <a href="#"><i class="lg-tile"><svg viewBox="0 0 48 48" fill="#fff" aria-hidden="true"><path d="M3 22A19 19 0 0 1 22 3L22 22Z"/><path d="M22 26L3 26A19 19 0 0 0 22 45Z"/><circle cx="35.5" cy="12.5" r="9.5"/><circle cx="35.5" cy="35.5" r="9.5"/></svg></i><span>Clincoo Tools</span><i class="ph ph-arrow-up-right"></i></a>
+          <a href="#"><i class="lg-qr"><svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="4"><rect x="4" y="4" width="16" height="16" rx="5"/><rect x="28" y="4" width="16" height="16" rx="5"/><rect x="4" y="28" width="16" height="16" rx="5"/></g><g fill="currentColor"><rect x="10" y="10" width="4" height="4" rx="1.5"/><rect x="34" y="10" width="4" height="4" rx="1.5"/><rect x="10" y="34" width="4" height="4" rx="1.5"/><rect x="28" y="28" width="7" height="7" rx="2.5"/><rect x="37" y="28" width="7" height="7" rx="2.5"/><rect x="28" y="37" width="7" height="7" rx="2.5"/><rect x="37" y="37" width="7" height="7" rx="2.5"/></g></svg></i><span>Clincoo QR</span><i class="ph ph-arrow-up-right"></i></a>
+          <a href="#" aria-current="page"><i class="lg-fav"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#ac0cea"/><path d="M566 476Q553 559 510 601Q468 643 398 644Q346 644 307 620Q268 596 242 556Q217 516 204 465Q192 414 192 360Q192 274 216 208Q241 141 288 103Q335 65 402 65Q465 65 527 98Q589 130 631 188L679 144Q630 77 576 42Q522 8 470 -4Q419 -16 378 -16Q301 -16 238 12Q175 39 130 88Q84 136 60 200Q35 265 35 340Q35 408 57 475Q79 542 122 596Q166 651 232 684Q298 716 385 716Q424 716 470 704Q517 691 558 667L554 709H631V476Z" transform="translate(10.84 37.39) scale(0.03825 -0.03825)" fill="#fff"/></svg></i><span>Clincoo Favicon</span><i class="ph ph-check"></i></a>
+          <a href="#"><i class="ph ph-article"></i><span>Clincoo Blog</span><i class="ph ph-arrow-up-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-sec">
+      <p class="sec">Tema</p>
+      <div class="seg" id="theme-seg" role="group" aria-label="Tema tampilan">
+        <button class="chip" type="button" data-th="light" aria-pressed="true"><i class="ph ph-sun"></i>Terang</button>
+        <button class="chip" type="button" data-th="dark" aria-pressed="false"><i class="ph ph-moon"></i>Gelap</button>
+        <button class="chip" type="button" data-th="auto" aria-pressed="false"><i class="ph ph-circle-half"></i>Otomatis</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero"><div class="hero-copy"><h1>Buat favicon websitemu <em>dalam hitungan detik</em></h1><p>Dari teks, emoji, atau gambar jadi ikon tab browser yang rapi. Gratis, tanpa daftar, tanpa watermark, dan langsung dapat paket lengkap siap pasang.</p><div class="hero-cta"><a class="p" href="#buat">Mulai buat favicon</a><a class="s" href="#cara">Lihat caranya</a></div></div><div class="hero-vis" aria-hidden="true"><canvas class="hero-ico" data-css="76"></canvas><div id="hero-mock"></div></div></section>
+
+  <div class="bench" id="buat"><div class="bench-l">
+    <!-- Isi ikon -->
+    <section class="g-form">
+      <div class="stp"><span class="n">1</span><h3>Pilih isi ikon</h3></div>
+      <div class="chips tabs" id="tabs" role="group" aria-label="Sumber ikon">
+        <button class="chip" type="button" data-t="text" aria-pressed="true"><i class="ph ph-text-aa"></i>Teks</button>
+        <button class="chip" type="button" data-t="emoji" aria-pressed="false"><i class="ph ph-smiley"></i>Emoji</button>
+        <button class="chip" type="button" data-t="image" aria-pressed="false"><i class="ph ph-image"></i>Gambar</button>
+      </div>
+      <div class="card">
+        <div class="row" data-p="text">
+          <label class="lb" for="f-text">Huruf atau inisial</label>
+          <div class="fld"><input id="f-text" class="big-in" type="text" maxlength="4" value="C" placeholder="C" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
+          <p class="hint">Satu atau dua huruf paling jelas terbaca di ukuran 16 px.</p>
+        </div>
+        <div class="row" data-p="emoji" hidden>
+          <label class="lb" for="f-emoji">Emoji</label>
+          <div class="fld"><input id="f-emoji" class="big-in" type="text" value="🚀" placeholder="🚀" autocomplete="off" spellcheck="false"></div>
+          <p class="hint">Ketik atau tempel satu emoji. Tampilannya mengikuti font emoji perangkatmu.</p>
+        </div>
+        <div class="row" data-p="emoji" hidden>
+          <span class="lb">Pilih cepat</span>
+          <div class="emojis" id="emojis"></div>
+        </div>
+        <div class="row" data-p="image" hidden>
+          <span class="lb">Gambar</span>
+          <div class="pick">
+            <img class="thumb" id="img-thumb" alt="Gambar terpilih" hidden>
+            <button class="chip" type="button" id="img-pick"><i class="ph ph-upload-simple"></i><span id="img-pick-t">Pilih gambar</span></button>
+            <button class="chip" type="button" id="img-del" hidden><i class="ph ph-trash"></i>Hapus</button>
+            <input type="file" id="f-img" accept="image/*" hidden>
+          </div>
+          <p class="hint">PNG, JPG, WebP, atau SVG. Paling bagus persegi, minimal 512 px, dengan bentuk sederhana. Maksimal 5 MB.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tampilan -->
+    <section class="g-style stack">
+      <div class="stp"><span class="n">2</span><h3>Atur gayanya</h3></div>
+      <div class="chips tabs" id="stabs" role="group" aria-label="Menu desain">
+        <button class="chip" type="button" data-s="gaya" aria-pressed="true"><i class="ph ph-magic-wand"></i>Template</button>
+        <button class="chip" type="button" data-s="warna" aria-pressed="false"><i class="ph ph-palette"></i>Warna</button>
+        <button class="chip" type="button" data-s="bentuk" aria-pressed="false"><i class="ph ph-shapes"></i>Bentuk</button>
+        <button class="chip" type="button" data-s="huruf" aria-pressed="false"><i class="ph ph-text-aa"></i>Huruf</button>
+        <button class="chip" type="button" data-s="lanjut" aria-pressed="false"><i class="ph ph-sliders-horizontal"></i>Lanjutan</button>
+      </div>
+
+      <div class="panel" data-sp="gaya">
+        <div class="presets" id="presets"></div>
+      </div>
+
+      <div class="panel" data-sp="warna" hidden>
+        <div class="card">
+          <div class="row h">
+            <span class="lb">Warna latar</span>
+            <button type="button" class="clr" data-c="bg" aria-label="Warna latar"><code id="bg-h">#ac0cea</code><span class="cs"></span></button><input type="hidden" id="bg" value="#ac0cea">
+          </div>
+          <div class="row">
+            <span class="lb">Gaya latar</span>
+            <div class="seg" id="gs" role="group" aria-label="Gaya latar">
+              <button class="chip" type="button" data-v="0" aria-pressed="true">Polos</button>
+              <button class="chip" type="button" data-v="1" aria-pressed="false">Gradasi</button>
+            </div>
+          </div>
+          <div class="row h" id="row-bg2" hidden>
+            <span class="lb">Warna kedua</span>
+            <button type="button" class="clr" data-c="bg2" aria-label="Warna kedua gradasi"><code id="bg2-h">#ff4fd8</code><span class="cs"></span></button><input type="hidden" id="bg2" value="#ff4fd8">
+          </div>
+          <div class="row h" id="row-fgc">
+            <span class="lb">Warna huruf</span>
+            <button type="button" class="clr" data-c="fgc" aria-label="Warna huruf"><code id="fgc-h">#ffffff</code><span class="cs"></span></button><input type="hidden" id="fgc" value="#ffffff">
+          </div>
+          <div class="row">
+            <span class="lb">Latar transparan</span>
+            <div class="seg" id="tr" role="group" aria-label="Latar transparan">
+              <button class="chip" type="button" data-v="0" aria-pressed="true">Tidak</button>
+              <button class="chip" type="button" data-v="1" aria-pressed="false">Ya</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" data-sp="bentuk" hidden>
+        <div class="card">
+          <div class="row">
+            <span class="lb">Bentuk ikon</span>
+            <div class="frs c4" id="shape" role="group" aria-label="Bentuk ikon">
+              <button class="chip fr" type="button" data-v="sq" aria-pressed="false" aria-label="Kotak" title="Kotak"><svg viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="2" width="32" height="32" rx="0" fill="var(--fg)"/></svg></button>
+              <button class="chip fr" type="button" data-v="rd" aria-pressed="true" aria-label="Membulat" title="Membulat"><svg viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="2" width="32" height="32" rx="7" fill="var(--fg)"/></svg></button>
+              <button class="chip fr" type="button" data-v="sf" aria-pressed="false" aria-label="Lembut" title="Lembut"><svg viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="2" width="32" height="32" rx="11" fill="var(--fg)"/></svg></button>
+              <button class="chip fr" type="button" data-v="ci" aria-pressed="false" aria-label="Bulat" title="Bulat"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="16" fill="var(--fg)"/></svg></button>
+            </div>
+          </div>
+          <div class="row">
+            <span class="lb">Ukuran isi</span>
+            <div class="seg" id="scale" role="group" aria-label="Ukuran isi">
+              <button class="chip" type="button" data-v="s" aria-pressed="false">Kecil</button>
+              <button class="chip" type="button" data-v="m" aria-pressed="true">Sedang</button>
+              <button class="chip" type="button" data-v="l" aria-pressed="false">Besar</button>
+              <button class="chip" type="button" data-v="xl" aria-pressed="false">Penuh</button>
+            </div>
+            <p class="hint">Berlaku untuk huruf, emoji, dan gambar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" data-sp="huruf" hidden>
+        <div class="card">
+          <div class="row">
+            <span class="lb">Jenis huruf</span>
+            <div class="frs c4" id="font" role="group" aria-label="Jenis huruf">
+              <button class="chip fr" type="button" data-v="mont" aria-pressed="true" aria-label="Montserrat" title="Montserrat"><span class="aa" style="font-family:Montserrat,sans-serif;font-weight:800">Aa</span></button>
+              <button class="chip fr" type="button" data-v="inter" aria-pressed="false" aria-label="Inter" title="Inter"><span class="aa" style="font-family:Inter,sans-serif;font-weight:700">Aa</span></button>
+              <button class="chip fr" type="button" data-v="serif" aria-pressed="false" aria-label="Playfair Display" title="Playfair Display"><span class="aa" style="font-family:'Playfair Display',serif;font-weight:800">Aa</span></button>
+              <button class="chip fr" type="button" data-v="mono" aria-pressed="false" aria-label="Roboto Mono" title="Roboto Mono"><span class="aa" style="font-family:'Roboto Mono',monospace;font-weight:700">Aa</span></button>
+            </div>
+            <p class="hint">Berlaku untuk jenis Teks.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" data-sp="lanjut" hidden>
+        <div class="card">
+          <div class="row">
+            <label class="lb" for="f-site">Nama situs</label>
+            <div class="fld"><input id="f-site" type="text" maxlength="40" value="Situs Kamu" placeholder="Nama situs" autocomplete="off"></div>
+            <p class="hint">Dipakai di pratinjau tab dan file site.webmanifest.</p>
+          </div>
+          <div class="row">
+            <button class="btn sm" type="button" id="reset"><i class="ph ph-arrow-counter-clockwise"></i>Atur ulang tampilan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+    <!-- Panggung -->
+    <aside class="stage g-out">
+      <div class="stp"><span class="n">3</span><h3>Pratinjau dan unduh</h3></div>
+      <div class="out">
+        <div class="pv" id="pv">
+          <canvas id="cv" width="480" height="480" role="img" aria-label="Pratinjau favicon"></canvas>
+          <div class="ph-empty" id="empty"><i class="ph ph-image-square"></i><span id="empty-t">Isi ikon dulu, favicon muncul di sini.</span></div>
+        </div>
+        <div class="mock" id="mock"></div>
+        <div class="note" id="note" hidden><i class="ph ph-warning"></i><span id="note-t"></span></div>
+        <div class="acts">
+          <button class="btn pri" type="button" id="dl-zip" disabled><i class="ph ph-package"></i>Unduh paket lengkap (.zip)</button>
+          <button class="btn" type="button" id="dl-ico" disabled><i class="ph ph-file-arrow-down"></i>ICO</button>
+          <button class="btn" type="button" id="dl-png" disabled><i class="ph ph-file-png"></i>PNG</button>
+          <button class="btn" type="button" id="dl-svg" disabled><i class="ph ph-file-svg"></i>SVG</button>
+        </div>
+        <p class="hint svg-hint" id="svg-hint" hidden>SVG untuk jenis Teks memakai font bawaan perangkat, jadi tidak disertakan di paket .zip. Pakai ICO dan PNG untuk hasil yang pasti sama.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="how" id="cara" aria-labelledby="how-t">
+    <h2 id="how-t">Cara membuat favicon</h2>
+    <ol class="steps">
+      <li><span class="n">1</span><div><b>Pilih sumber ikon</b><p>Mulai dari huruf atau inisial, emoji, atau gambar logomu sendiri.</p></div></li>
+      <li><span class="n">2</span><div><b>Atur tampilannya</b><p>Pilih template, warna, bentuk, dan huruf. Pratinjau langsung berubah.</p></div></li>
+      <li><span class="n">3</span><div><b>Cek pratinjau</b><p>Lihat ikonmu di tab browser terang dan gelap, plus di layar utama HP.</p></div></li>
+      <li><span class="n">4</span><div><b>Unduh paketnya</b><p>Satu file .zip berisi ICO, PNG, SVG, dan manifest, siap dipasang.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="sx" id="pasang" aria-labelledby="ps-t">
+    <h2 id="ps-t">Pasang di website</h2>
+    <div class="inst">
+      <ol class="isteps">
+        <li><span class="n">1</span><div><b>Unggah file</b><p>Taruh semua file dari paket .zip di folder utama (root) websitemu.</p></div></li>
+        <li><span class="n">2</span><div><b>Tempel kode</b><p>Salin kode di samping ke dalam &lt;head&gt; setiap halaman.</p></div></li>
+        <li><span class="n">3</span><div><b>Muat ulang paksa</b><p>Tekan Ctrl atau Cmd + Shift + R. Kalau belum berubah, buka di jendela privat.</p></div></li>
+      </ol>
+      <div class="code">
+        <div class="code-h"><span class="lb">Kode untuk &lt;head&gt;</span><button class="btn sm" type="button" id="copy" disabled><i class="ph ph-copy"></i>Salin</button></div>
+        <pre id="snip"></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="sx" id="fitur" aria-labelledby="ft-t">
+    <h2 id="ft-t">Kenapa Clincoo Favicon</h2>
+    <div class="feat">
+      <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient><linearGradient id="fb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8adfc"/><stop offset="1" stop-color="#bd55f2"/></linearGradient></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><rect x="10" y="29" width="44" height="28" rx="5" fill="url(#fa)"/><rect x="6" y="20" width="52" height="13" rx="5" fill="url(#fb)"/><rect x="10" y="33" width="44" height="3" fill="#3a0560" opacity=".14"/><rect x="27.5" y="20" width="9" height="37" rx="1" fill="#fff" opacity=".95"/><path d="M32 20C26 7 13 9 15.5 15.5 17.5 20 27 20 32 20Z" fill="#fff"/><path d="M32 20C38 7 51 9 48.5 15.5 46.5 20 37 20 32 20Z" fill="#ffd778"/><path d="M12 24h16" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/></svg><b>Gratis tanpa daftar</b><p>Langsung pakai, tanpa akun, tanpa iklan, tanpa watermark.</p></div>
+      <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><polygon points="32,8 56,20 32,32 8,20" fill="#e6a8fc"/><polygon points="8,20 32,32 32,57 8,45" fill="#b72df0"/><polygon points="32,32 56,20 56,45 32,57" fill="#8a0abf"/><polygon points="22.9,12.6 46.9,24.6 41.1,27.4 17.1,15.4" fill="#fff" opacity=".88"/><polygon points="41.1,27.4 46.9,24.6 46.9,49.6 41.1,52.4" fill="#ffd778"/><path d="M12 22l16 8" stroke="#fff" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/></svg><b>Paket lengkap</b><p>ICO, PNG, ikon iOS dan Android, manifest, plus kode siap tempel.</p></div>
+      <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="wa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><rect x="6" y="10" width="52" height="42" rx="8" fill="url(#wa)"/><path d="M6 18a8 8 0 0 1 8-8h36a8 8 0 0 1 8 8v4H6z" fill="#ecbcfd"/><circle cx="13" cy="16" r="2.2" fill="#ff7ac8"/><circle cx="20" cy="16" r="2.2" fill="#ffb020"/><circle cx="27" cy="16" r="2.2" fill="#15e99d"/><rect x="10" y="26" width="44" height="22" rx="4" fill="#fff"/><rect x="14" y="30" width="11" height="11" rx="3.5" fill="#ffb020"/><rect x="29" y="31" width="20" height="3.2" rx="1.6" fill="#dcbbf0"/><rect x="29" y="37.5" width="14" height="3.2" rx="1.6" fill="#dcbbf0"/></svg><b>Pratinjau nyata</b><p>Cek di tab terang, tab gelap, dan layar utama HP sebelum diunduh.</p></div>
+      <div class="ft"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="la" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59" rx="19" ry="3.2" fill="#ac0cea" opacity=".2"/><path d="M21 28V21a11 11 0 0 1 22 0v7" fill="none" stroke="#ecbcfd" stroke-width="6" stroke-linecap="round"/><rect x="12" y="27" width="40" height="30" rx="8" fill="url(#la)"/><path d="M17 33c0-2 1.5-3.5 3.5-3.5h8" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/><circle cx="32" cy="41" r="4.2" fill="#2a0845"/><rect x="30" y="42" width="4" height="9" rx="2" fill="#2a0845"/></svg><b>Diproses di browser</b><p>Gambar dan teksmu tidak dikirim ke server mana pun.</p></div>
+    </div>
+  </section>
+
+  <section class="sx" aria-labelledby="uc-t">
+    <h2 id="uc-t">Cocok untuk apa saja</h2>
+    <div class="uc">
+      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="10" y="30" width="44" height="26" rx="3" fill="url(#us1)"/><path d="M8 20L13 8h38l5 12z" fill="#ffb020"/><path d="M21 8l-2 12M32 8v12M43 8l2 12" stroke="#fff" stroke-opacity=".55" stroke-width="4"/><path d="M8 20h48v3a6 6 0 0 1-12 0 6 6 0 0 1-12 0 6 6 0 0 1-12 0 6 6 0 0 1-12 0z" fill="#ff9a1f"/><rect x="25" y="38" width="14" height="18" rx="2" fill="#fff" opacity=".95"/><rect x="14" y="36" width="8" height="8" rx="2" fill="#fff" opacity=".4"/></svg>Website bisnis</div>
+      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="28" y="8" width="12" height="13" rx="3" fill="#15e99d"/><path d="M6 10h8l6 28h28" fill="none" stroke="#8a0abf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 18h42l-5 20H21z" fill="url(#us2)"/><path d="M22 23h30" stroke="#fff" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="50" r="4.6" fill="#2a0845"/><circle cx="46" cy="50" r="4.6" fill="#2a0845"/></svg>Toko online</div>
+      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="12" y="8" width="34" height="46" rx="5" fill="#fff"/><rect x="12" y="8" width="34" height="46" rx="5" fill="none" stroke="#ecbcfd" stroke-width="1.5"/><rect x="18" y="16" width="22" height="4.5" rx="2.2" fill="#ac0cea"/><rect x="18" y="26" width="22" height="3" rx="1.5" fill="#dcbbf0"/><rect x="18" y="32" width="22" height="3" rx="1.5" fill="#dcbbf0"/><rect x="18" y="38" width="14" height="3" rx="1.5" fill="#dcbbf0"/><g transform="rotate(30 46 38)"><rect x="42" y="20" width="9" height="32" rx="2" fill="#ffb020"/><path d="M42 52h9l-4.5 8z" fill="#ffe3a1"/><rect x="42" y="20" width="9" height="6" rx="2" fill="#ff7ac8"/></g></svg>Blog</div>
+      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><path d="M24 20v-4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v4" fill="none" stroke="#8a0abf" stroke-width="4"/><rect x="6" y="20" width="52" height="34" rx="7" fill="url(#us4)"/><path d="M6 34h52" stroke="#3a0560" stroke-opacity=".25" stroke-width="2"/><rect x="28" y="31" width="8" height="7" rx="2" fill="#ffb020"/><path d="M12 26h16" stroke="#fff" stroke-opacity=".4" stroke-width="2.4" stroke-linecap="round"/></svg>Portofolio</div>
+      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c75cf5"/><stop offset="1" stop-color="#8a0abf"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><rect x="18" y="6" width="28" height="50" rx="7" fill="url(#us5)"/><rect x="22" y="12" width="20" height="38" rx="3" fill="#fff"/><rect x="25" y="16" width="6" height="6" rx="2" fill="#ffb020"/><rect x="33" y="16" width="6" height="6" rx="2" fill="#15e99d"/><rect x="25" y="24" width="6" height="6" rx="2" fill="#ff7ac8"/><rect x="33" y="24" width="6" height="6" rx="2" fill="#c75cf5"/><rect x="25" y="36" width="14" height="4" rx="2" fill="#dcbbf0"/><rect x="25" y="43" width="9" height="3" rx="1.5" fill="#dcbbf0"/></svg>Aplikasi web</div>
+      <div class="u"><svg class="i3d" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="us6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6cdf6"/></linearGradient></defs><ellipse cx="32" cy="59.5" rx="18" ry="3" fill="#ac0cea" opacity=".2"/><path d="M22 30l-9 10 2 7 9-5z" fill="#ac0cea"/><path d="M42 30l9 10-2 7-9-5z" fill="#ac0cea"/><path d="M26 38h12l-6 16z" fill="#ffb020"/><path d="M29 38h6l-3 9z" fill="#ffe3a1"/><path d="M32 6c9 7 12 17 10 30H22C20 23 23 13 32 6z" fill="url(#us6)"/><path d="M32 6c4 3 7 7 9 12H23c2-5 5-9 9-12z" fill="#ff4fd8"/><circle cx="32" cy="25" r="5" fill="#ac0cea"/><circle cx="32" cy="25" r="3" fill="#e6a8fc"/></svg>Landing page</div>
+    </div>
+  </section>
+
+  <section class="sx" id="faq" aria-labelledby="fq-t">
+    <h2 id="fq-t">Pertanyaan yang sering muncul</h2>
+    <div class="faq">
+      <details><summary>Apakah Clincoo Favicon gratis?</summary><p>Ya. Gratis, tanpa daftar, tanpa iklan, dan tanpa watermark di hasil unduhan.</p></details>
+      <details><summary>File apa saja yang ada di paket .zip?</summary><p>favicon.ico (16, 32, dan 48 px), PNG 16 dan 32 px, apple-touch-icon 180 px, ikon Android 192 dan 512 px, site.webmanifest, dan file berisi kode siap tempel. Untuk jenis Emoji dan Gambar, favicon.svg ikut disertakan.</p></details>
+      <details><summary>Bagaimana cara memasangnya di website?</summary><p>Unggah semua file ke folder utama (root) websitemu, lalu tempel kode yang tampil di bawah pratinjau ke dalam &lt;head&gt; setiap halaman. Banyak platform seperti WordPress, Shopify, dan Wix juga punya kolom ikon situs, tempat kamu bisa mengunggah PNG 512 px.</p></details>
+      <details><summary>Kenapa favicon saya tidak berubah setelah dipasang?</summary><p>Browser menyimpan favicon di cache cukup lama. Coba muat ulang paksa (Ctrl atau Cmd + Shift + R), tutup tab lalu buka lagi, atau buka websitemu di jendela privat.</p></details>
+      <details><summary>Apakah gambar saya diunggah ke server?</summary><p>Tidak. Semuanya diproses langsung di browser kamu, jadi teks dan gambar yang kamu pakai tidak perlu dikirim ke mana-mana.</p></details>
+      <details><summary>Gambar seperti apa yang cocok jadi favicon?</summary><p>Gambar persegi, minimal 512 x 512 px, dengan bentuk sederhana dan kontras tinggi. Detail halus dan tulisan kecil akan hilang saat dikecilkan ke 16 px.</p></details>
+    </div>
+  </section>
+
+  <section class="cta-end" aria-labelledby="ce-t">
+    <h2 id="ce-t">Siap bikin favicon websitemu?</h2>
+    <p>Gratis, tanpa daftar, dan paketnya langsung bisa dipasang.</p>
+    <div class="hero-cta"><a class="p" href="#buat">Buat favicon sekarang</a></div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#"><span class="logo" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#ac0cea"/><path d="M566 476Q553 559 510 601Q468 643 398 644Q346 644 307 620Q268 596 242 556Q217 516 204 465Q192 414 192 360Q192 274 216 208Q241 141 288 103Q335 65 402 65Q465 65 527 98Q589 130 631 188L679 144Q630 77 576 42Q522 8 470 -4Q419 -16 378 -16Q301 -16 238 12Q175 39 130 88Q84 136 60 200Q35 265 35 340Q35 408 57 475Q79 542 122 596Q166 651 232 684Q298 716 385 716Q424 716 470 704Q517 691 558 667L554 709H631V476Z" transform="translate(10.84 37.39) scale(0.03825 -0.03825)" fill="#fff"/></svg></span>Clincoo Favicon</a>
+        <p>Pembuat favicon gratis dari teks, emoji, atau gambar. Unduh ICO, PNG, SVG, atau paket lengkap siap pasang.</p>
+      </div>
+      <div class="foot-col">
+        <h3>Produk</h3>
+        <a href="https://www.clincoo.buzz">Clincoo</a>
+        <a href="#">Clincoo AI</a>
+        <a href="#">Clincoo Tools</a>
+        <a href="#">Clincoo QR</a>
+        <a href="#" aria-current="page">Clincoo Favicon</a>
+        <a href="#">Clincoo Blog</a>
+      </div>
+      <div class="foot-col">
+        <h3>Jenis ikon</h3>
+        <a href="#buat" data-go="text">Teks</a>
+        <a href="#buat" data-go="emoji">Emoji</a>
+        <a href="#buat" data-go="image">Gambar</a>
+      </div>
+      <div class="foot-col foot-perk">
+        <h3>Keunggulan</h3>
+        <span><i class="ph ph-check-circle"></i>Gratis tanpa daftar</span>
+        <span><i class="ph ph-check-circle"></i>Tanpa watermark</span>
+        <span><i class="ph ph-check-circle"></i>ICO, PNG, dan SVG siap pasang</span>
+        <span><i class="ph ph-check-circle"></i>Diproses di browser kamu</span>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>&copy; 2026 Clincoo Favicon. Semua hak dilindungi.</span>
+    </div>
+  </footer>
+</main>
+
+<div class="cp" id="cp" hidden>
+  <div class="cp-bd" id="cp-bd"></div>
+  <div class="cp-sheet" role="dialog" aria-modal="true" aria-label="Pilih warna">
+    <div class="cp-top"><span id="cp-t">Warna</span><button type="button" id="cp-x" aria-label="Tutup"><i class="ph ph-x"></i></button></div>
+    <div class="cp-sv" id="cp-sv"><div class="cp-k" id="cp-k"></div></div>
+    <div class="cp-hue" id="cp-hue"><div class="cp-k" id="cp-hk"></div></div>
+    <div class="cp-hex"><span class="cs" id="cp-prev"></span><input id="cp-in" type="text" maxlength="7" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Kode warna hex"></div>
+    <div class="cp-pal" id="cp-pal"></div>
+    <button class="btn pri sm" type="button" id="cp-ok">Selesai</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><i class="ph ph-check-circle"></i><span id="toast-t"></span></div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var DEF = { bg: '#ac0cea', bg2: '#ff4fd8', fgc: '#ffffff', grad: false, shape: 'rd', font: 'mont', scale: 'm', transp: false };
+  var S = { t: 'text', shape: DEF.shape, font: DEF.font, scale: DEF.scale, grad: DEF.grad, transp: DEF.transp, img: null };
+  var FONTS = {
+    mont: { fam: "Montserrat, Inter, Arial, sans-serif", w: 800, spec: "800 40px Montserrat" },
+    inter: { fam: "Inter, Arial, sans-serif", w: 700, spec: "700 40px Inter" },
+    serif: { fam: "'Playfair Display', Georgia, serif", w: 800, spec: "800 40px 'Playfair Display'" },
+    mono: { fam: "'Roboto Mono', ui-monospace, monospace", w: 700, spec: "700 40px 'Roboto Mono'" }
+  };
+  var EMO = "'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif";
+  var RAD = { sq: 0, rd: .2, sf: .32, ci: .5 };
+  var SC = { s: .8, m: 1, l: 1.2, xl: 1.4 };
+  var IMG = { s: .5, m: .68, l: .86, xl: 1 };
+  var FL = {};
+  var scratch = document.createElement('canvas').getContext('2d');
+
+  /* Tema */
+  var mq = matchMedia('(prefers-color-scheme: dark)');
+  function pref() { try { return localStorage.getItem('clq_theme') || 'light'; } catch (e) { return 'light'; } }
+  function theme() {
+    var p = pref(), d = p === 'dark' || (p === 'auto' && mq.matches);
+    document.documentElement.classList.toggle('dark-mode', d);
+    document.querySelector('meta[name=theme-color]').content = d ? '#0b0f17' : '#ffffff';
+    [].forEach.call($('theme-seg').querySelectorAll('.chip'), function (c) { c.setAttribute('aria-pressed', String(c.dataset.th === p)); });
+  }
+  theme(); mq.addEventListener('change', theme);
+  addEventListener('storage', function (e) { if (e.key === 'clq_theme') theme(); });
+  $('theme-seg').addEventListener('click', function (e) {
+    var c = e.target.closest('.chip'); if (!c) return;
+    try { localStorage.setItem('clq_theme', c.dataset.th); } catch (x) {}
+    theme();
+  });
+
+  /* Menu */
+  (function () {
+    var t = document.querySelector('.top'), b = $('menu-btn'), n = $('nav'), d = $('nav-bd');
+    function set(o) { t.classList.toggle('open', o); n.classList.toggle('open', o); d.classList.toggle('on', o); b.setAttribute('aria-expanded', o); b.setAttribute('aria-label', o ? 'Tutup menu' : 'Buka menu'); }
+    b.addEventListener('click', function () { set(!n.classList.contains('open')); });
+    d.addEventListener('click', function () { set(false); });
+    n.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    addEventListener('scroll', function () { t.classList.toggle('sc', scrollY > 8); }, { passive: true });
+    var db = $('dd-btn'), dw = $('dd-list');
+    db.addEventListener('click', function () { var o = !dw.classList.contains('open'); dw.classList.toggle('open', o); db.setAttribute('aria-expanded', o); });
+  })();
+
+  /* ====== Utilitas ====== */
+  function p(v) { return Math.round(v * 100) / 100; }
+  function mix(a, b) { var o = {}, k; for (k in a) o[k] = a[k]; for (k in b) o[k] = b[k]; return o; }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function firstG(s) {
+    s = (s || '').trim(); if (!s) return '';
+    if (window.Intl && Intl.Segmenter) { var it = new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(s)[Symbol.iterator]().next(); return it.value ? it.value.segment : ''; }
+    return Array.from(s)[0];
+  }
+  function rrPath(c, x, y, w, h, r) {
+    c.beginPath();
+    if (r <= 0) { c.rect(x, y, w, h); return; }
+    r = Math.min(r, w / 2, h / 2);
+    c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath();
+  }
+  function lum(hex) {
+    var v = [1, 3, 5].map(function (i) { var c = parseInt(hex.substr(i, 2), 16) / 255; return c <= .03928 ? c / 12.92 : Math.pow((c + .055) / 1.055, 2.4); });
+    return .2126 * v[0] + .7152 * v[1] + .0722 * v[2];
+  }
+  function cr(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); }
+
+  /* ====== Data ikon ====== */
+  function style() { return { bg: $('bg').value, bg2: $('bg2').value, fgc: $('fgc').value, grad: S.grad, shape: S.shape, font: S.font, scale: S.scale, transp: S.transp }; }
+  function content() { return { type: S.t, text: Array.from($('f-text').value.trim()).slice(0, 4).join(''), emoji: firstG($('f-emoji').value), img: S.img }; }
+  function hasContent(c) { return c.type === 'text' ? !!c.text : c.type === 'emoji' ? !!c.emoji : !!c.img; }
+
+  /* ====== Menggambar ikon ====== */
+  function glyph(ctx, size, s, c) {
+    var em = c.type === 'emoji', t = em ? c.emoji : c.text, f = FONTS[s.font];
+    var fam = em ? EMO : f.fam, w = em ? 400 : f.w, n = Array.from(t).length;
+    var base = em ? .62 : n <= 1 ? .7 : n === 2 ? .56 : n === 3 ? .44 : .36;
+    var fs = size * base * SC[s.scale];
+    ctx.font = w + ' ' + fs + 'px ' + fam;
+    var m = ctx.measureText(t), maxW = size * (em ? .92 : .88);
+    if (m.width > maxW) { fs *= maxW / m.width; ctx.font = w + ' ' + fs + 'px ' + fam; m = ctx.measureText(t); }
+    ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    var a = m.actualBoundingBoxAscent || fs * .72, d = m.actualBoundingBoxDescent || 0;
+    return { t: t, fam: fam, w: w, fs: fs, y: size / 2 + (a - d) / 2 };
+  }
+  function drawIcon(ctx, size, s, c, o) {
+    o = o || {};
+    ctx.clearRect(0, 0, size, size);
+    ctx.save();
+    rrPath(ctx, 0, 0, size, size, o.apple ? 0 : RAD[s.shape] * size); ctx.clip();
+    if (!s.transp || o.apple) {
+      var fill = s.bg;
+      if (s.grad) { fill = ctx.createLinearGradient(0, 0, size, size); fill.addColorStop(0, s.bg); fill.addColorStop(1, s.bg2); }
+      ctx.fillStyle = fill; ctx.fillRect(0, 0, size, size);
+    }
+    if (c.type === 'image') {
+      if (c.img) {
+        var b = size * IMG[s.scale], sc = Math.min(b / c.img.w, b / c.img.h), dw = c.img.w * sc, dh = c.img.h * sc;
+        ctx.drawImage(c.img.cv, (size - dw) / 2, (size - dh) / 2, dw, dh);
+      }
+    } else {
+      var L = glyph(ctx, size, s, c);
+      ctx.fillStyle = s.fgc; ctx.fillText(L.t, size / 2, L.y);
+    }
+    ctx.restore();
+  }
+  function paintTo(cv, px, s, c, o) { cv.width = px; cv.height = px; drawIcon(cv.getContext('2d'), px, s, c, o); }
+
+  function svgString() {
+    var s = style(), c = content(), N = 512, r = RAD[s.shape] * N, defs = '', fill = s.bg;
+    if (s.grad) {
+      defs += '<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512"><stop offset="0" stop-color="' + s.bg + '"/><stop offset="1" stop-color="' + s.bg2 + '"/></linearGradient>';
+      fill = 'url(#g)';
+    }
+    defs += '<clipPath id="k"><rect width="512" height="512" rx="' + p(r) + '"/></clipPath>';
+    var o = '<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="512" height="512"><defs>' + defs + '</defs><g clip-path="url(#k)">';
+    if (!s.transp) o += '<rect width="512" height="512" fill="' + fill + '"/>';
+    if (c.type === 'image' && c.img) {
+      var b = N * IMG[s.scale], sc = Math.min(b / c.img.w, b / c.img.h), dw = c.img.w * sc, dh = c.img.h * sc;
+      o += '<image x="' + p((N - dw) / 2) + '" y="' + p((N - dh) / 2) + '" width="' + p(dw) + '" height="' + p(dh) + '" href="' + c.img.url + '" xlink:href="' + c.img.url + '"/>';
+    } else if (c.type !== 'image') {
+      var L = glyph(scratch, N, s, c);
+      o += '<text x="256" y="' + p(L.y) + '" text-anchor="middle" font-family="' + L.fam + '" font-weight="' + L.w + '" font-size="' + p(L.fs) + '" fill="' + s.fgc + '">' + esc(L.t) + '</text>';
+    }
+    return o + '</g></svg>';
+  }
+
+  /* ====== Pratinjau (tab, ukuran, HP) ====== */
+  function bm(cls) {
+    return '<div class="bm ' + cls + '"><div class="tabbar"><div class="tab on"><canvas data-css="16"></canvas><span class="ttl"></span><i class="ph ph-x x"></i></div><div class="tab"><span class="gl"></span><span class="ttl2">Tab lain</span></div></div><div class="strip"><span class="url">situskamu.com</span></div></div>';
+  }
+  function fig(css, label, ios) { return '<figure><canvas data-css="' + css + '"' + (ios ? ' class="ios" data-ios="1"' : '') + '></canvas><figcaption>' + label + '</figcaption></figure>'; }
+  $('mock').innerHTML = '<div class="sizes">' + fig(16, '16 px') + fig(32, '32 px') + fig(48, '48 px') + fig(60, 'iOS 180 px', true) + '</div>';
+  $('hero-mock').innerHTML = bm('') + bm('dark');
+
+  /* ====== Render ====== */
+  var BTNS = ['dl-zip', 'dl-ico', 'dl-png', 'dl-svg', 'copy'];
+  function setBtns(on) { BTNS.forEach(function (id) { $(id).disabled = !on; }); }
+  function note(t) { $('note').hidden = !t; $('note-t').textContent = t || ''; }
+  function fontReady() {
+    var f = FONTS[S.font];
+    if (FL[S.font] || !document.fonts || !document.fonts.load) return;
+    document.fonts.load(f.spec, 'CAa1').then(function () { FL[S.font] = 1; render(); }, function () { FL[S.font] = 1; });
+  }
+  function themeColor() { return S.transp ? '#ffffff' : $('bg').value; }
+  function snippet() {
+    var L = ['<link rel="icon" href="/favicon.ico" sizes="32x32">'];
+    if (S.t !== 'text') L.push('<link rel="icon" href="/favicon.svg" type="image/svg+xml">');
+    L.push('<link rel="apple-touch-icon" href="/apple-touch-icon.png">', '<link rel="manifest" href="/site.webmanifest">', '<meta name="theme-color" content="' + themeColor() + '">');
+    return L.join('\n');
+  }
+  function warn(c) {
+    var m = [], s = style();
+    if (S.t === 'text') {
+      if (Array.from(c.text).length > 2) m.push('Lebih dari 2 huruf sulit terbaca di ukuran 16 px. Coba 1 atau 2 huruf saja.');
+      if (!S.transp) {
+        var r = cr(s.fgc, s.bg); if (s.grad) r = Math.min(r, cr(s.fgc, s.bg2));
+        if (r < 3) m.push('Kontras huruf dan latar terlalu rendah, ikon bisa sulit dibaca. Pilih warna yang lebih berbeda.');
+      }
+    }
+    if (S.transp) m.push('Latar transparan: ikon bisa tidak terlihat di tab gelap atau terang. Pastikan warnanya terbaca di keduanya.');
+    return m.join(' ');
+  }
+  var PRE = [
+    { n: 'Ungu', s: { bg: '#ac0cea', grad: false, fgc: '#ffffff', shape: 'rd', font: 'mont' } },
+    { n: 'Sunset', s: { bg: '#ea580c', bg2: '#db2777', grad: true, fgc: '#ffffff', shape: 'ci', font: 'mont' } },
+    { n: 'Hutan', s: { bg: '#065f46', grad: false, fgc: '#ecfdf5', shape: 'sf', font: 'serif' } },
+    { n: 'Tinta', s: { bg: '#111111', grad: false, fgc: '#ffffff', shape: 'rd', font: 'inter' } },
+    { n: 'Neon', s: { bg: '#0b0f17', grad: false, fgc: '#22d3ee', shape: 'sq', font: 'mono' } },
+    { n: 'Pastel', s: { bg: '#fde68a', grad: false, fgc: '#92400e', shape: 'sf', font: 'mont' } }
+  ];
+  PRE.forEach(function (x, i) {
+    var b = document.createElement('button'), cv = document.createElement('canvas');
+    b.type = 'button'; b.className = 'pre'; b.dataset.i = i; b.setAttribute('aria-label', 'Template ' + x.n);
+    b.appendChild(cv); b.appendChild(document.createTextNode(x.n)); $('presets').appendChild(b);
+  });
+  function fillPresets() {
+    var c = content(); if (!hasContent(c)) c = { type: 'text', text: 'C', emoji: '', img: null };
+    var base = style();
+    [].forEach.call($('presets').children, function (b) {
+      var x = PRE[+b.dataset.i], s = mix(base, mix({ bg2: DEF.bg2, transp: false }, x.s));
+      paintTo(b.firstChild, 120, s, c);
+    });
+  }
+  function render() {
+    ['bg', 'bg2', 'fgc'].forEach(function (id) { $(id + '-h').textContent = $(id).value; });
+    [].forEach.call(document.querySelectorAll('.clr'), function (b) { b.lastChild.style.background = $(b.dataset.c).value; });
+    $('pv').classList.toggle('chk', S.transp);
+    var s = style(), c = content(), ok = hasContent(c);
+    if (S.t === 'text') fontReady();
+    $('empty').hidden = ok; $('cv').style.visibility = ok ? 'visible' : 'hidden';
+    $('empty-t').textContent = S.t === 'image' ? 'Pilih gambar, favicon muncul di sini.' : 'Isi ikon dulu, favicon muncul di sini.';
+    var title = $('f-site').value.trim() || 'Situs Kamu';
+    [].forEach.call(document.querySelectorAll('.ttl'), function (el) { el.textContent = title; });
+    [].forEach.call(document.querySelectorAll('canvas[data-css]'), function (el) {
+      var css = +el.dataset.css, px = Math.max(css * (el.dataset.ios ? 3 : 2), 32);
+      el.style.width = css + 'px'; el.style.height = css + 'px';
+      if (ok) paintTo(el, px, s, c, { apple: !!el.dataset.ios });
+      else { el.width = px; el.height = px; }
+    });
+    if (ok) paintTo($('cv'), 480, s, c);
+    setBtns(ok); note(ok ? warn(c) : '');
+    $('snip').textContent = snippet();
+    $('svg-hint').hidden = S.t !== 'text';
+    fillPresets();
+  }
+
+  /* ====== Kontrol ====== */
+  function setGroup(id, val) {
+    [].forEach.call($(id).children, function (x) { x.setAttribute('aria-pressed', String(x.dataset.v) === String(val) ? 'true' : 'false'); });
+  }
+  function syncUI() {
+    $('row-bg2').hidden = !S.grad;
+    $('row-fgc').hidden = S.t !== 'text';
+    $('img-del').hidden = !S.img;
+    $('img-thumb').hidden = !S.img;
+    if (S.img) $('img-thumb').src = S.img.url;
+    $('img-pick-t').textContent = S.img ? 'Ganti' : 'Pilih gambar';
+  }
+  function group(id, key, cast) {
+    $(id).addEventListener('click', function (e) {
+      var b = e.target.closest('.chip'); if (!b) return;
+      S[key] = cast ? cast(b.dataset.v) : b.dataset.v;
+      setGroup(id, b.dataset.v); syncUI(); render();
+    });
+  }
+  group('shape', 'shape'); group('scale', 'scale'); group('font', 'font');
+  group('gs', 'grad', function (v) { return v === '1'; });
+  group('tr', 'transp', function (v) { return v === '1'; });
+
+  function setTab(t) {
+    S.t = t;
+    [].forEach.call($('tabs').children, function (x) { x.setAttribute('aria-pressed', String(x.dataset.t === t)); });
+    [].forEach.call(document.querySelectorAll('[data-p]'), function (r) { r.hidden = r.dataset.p !== t; });
+    syncUI(); render();
+  }
+  $('tabs').addEventListener('click', function (e) { var b = e.target.closest('.chip'); if (b) setTab(b.dataset.t); });
+  [].forEach.call(document.querySelectorAll('[data-go]'), function (a) { a.addEventListener('click', function () { setTab(a.dataset.go); }); });
+
+  ['🚀', '⭐', '🔥', '💡', '🎨', '📷', '🛒', '☕', '🍔', '🐱', '🐶', '🌱', '💼', '🎵', '🎮', '📚', '❤️', '⚡', '🌈', '🏠'].forEach(function (e) {
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = e; b.setAttribute('aria-label', 'Emoji ' + e);
+    b.addEventListener('click', function () { $('f-emoji').value = e; render(); });
+    $('emojis').appendChild(b);
+  });
+
+  document.querySelector('main').addEventListener('input', render);
+
+  /* Gambar */
+  $('img-pick').addEventListener('click', function () { $('f-img').click(); });
+  $('img-del').addEventListener('click', function () { S.img = null; $('f-img').value = ''; syncUI(); render(); });
+  $('f-img').addEventListener('change', function () {
+    var input = this, f = input.files && input.files[0];
+    if (!f) return;
+    if (f.size > 5 * 1024 * 1024) { toast('Gambar terlalu besar, maksimal 5 MB'); input.value = ''; return; }
+    var fr = new FileReader();
+    fr.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        var w = im.naturalWidth || 256, h = im.naturalHeight || 256, mx = Math.max(w, h);
+        var sc = (f.type === 'image/svg+xml' && mx < 256) ? 512 / mx : Math.min(1, 512 / mx);
+        var cw = Math.max(1, Math.round(w * sc)), ch = Math.max(1, Math.round(h * sc));
+        var cv = document.createElement('canvas'); cv.width = cw; cv.height = ch;
+        cv.getContext('2d').drawImage(im, 0, 0, cw, ch);
+        S.img = { cv: cv, url: cv.toDataURL('image/png'), w: cw, h: ch };
+        input.value = ''; syncUI(); render();
+      };
+      im.onerror = function () { toast('Gambar tidak bisa dibaca'); input.value = ''; };
+      im.src = fr.result;
+    };
+    fr.onerror = function () { toast('Gambar tidak bisa dibaca'); };
+    fr.readAsDataURL(f);
+  });
+
+  /* Studio */
+  $('stabs').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    [].forEach.call($('stabs').children, function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    [].forEach.call(document.querySelectorAll('[data-sp]'), function (r) { r.hidden = r.dataset.sp !== b.dataset.s; });
+  });
+  function applyStyle(x) {
+    if ('bg' in x) $('bg').value = x.bg;
+    if ('bg2' in x) $('bg2').value = x.bg2;
+    if ('fgc' in x) $('fgc').value = x.fgc;
+    if ('grad' in x) { S.grad = !!x.grad; setGroup('gs', S.grad ? '1' : '0'); }
+    if ('transp' in x) { S.transp = !!x.transp; setGroup('tr', S.transp ? '1' : '0'); }
+    ['shape', 'font', 'scale'].forEach(function (k) { if (k in x) { S[k] = x[k]; setGroup(k, x[k]); } });
+    syncUI(); render();
+  }
+  $('presets').addEventListener('click', function (e) {
+    var b = e.target.closest('.pre'); if (!b) return;
+    applyStyle(mix({ bg2: DEF.bg2, transp: false }, PRE[+b.dataset.i].s));
+  });
+  $('reset').addEventListener('click', function () { applyStyle(DEF); });
+
+  /* ====== Pemilih warna ====== */
+  var cp = { id: null, h: 0, s: 0, v: 0 };
+  function h2hex(h, s, v) {
+    var f = function (n) { var k = (n + h / 60) % 6, x = Math.round((v - v * s * Math.max(0, Math.min(k, 4 - k, 1))) * 255); return (x < 16 ? '0' : '') + x.toString(16); };
+    return '#' + f(5) + f(3) + f(1);
+  }
+  function hex2hsv(x) {
+    var r = parseInt(x.substr(1, 2), 16) / 255, g = parseInt(x.substr(3, 2), 16) / 255, b = parseInt(x.substr(5, 2), 16) / 255;
+    var mx = Math.max(r, g, b), d = mx - Math.min(r, g, b), h = 0;
+    if (d) { h = (mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4) * 60; if (h < 0) h += 360; }
+    return { h: h, s: mx ? d / mx : 0, v: mx };
+  }
+  function cpUI(skipIn) {
+    var hex = h2hex(cp.h, cp.s, cp.v);
+    $('cp-sv').style.background = 'linear-gradient(to top,#000,rgba(0,0,0,0)),linear-gradient(to right,#fff,hsl(' + cp.h + ',100%,50%))';
+    $('cp-k').style.left = cp.s * 100 + '%'; $('cp-k').style.top = (1 - cp.v) * 100 + '%';
+    $('cp-hk').style.left = cp.h / 360 * 100 + '%';
+    $('cp-prev').style.background = hex; $('cp-k').style.background = hex; $('cp-hk').style.background = h2hex(cp.h, 1, 1);
+    if (!skipIn) $('cp-in').value = hex;
+    return hex;
+  }
+  function cpSet() { var hex = cpUI(); $(cp.id).value = hex; $(cp.id).dispatchEvent(new Event('input', { bubbles: true })); }
+  function cpOpen(id, title) {
+    cp.id = id; var c = hex2hsv($(id).value); cp.h = c.h; cp.s = c.s; cp.v = c.v;
+    $('cp-t').textContent = title; $('cp').hidden = false; cpUI(); $('cp-ok').focus();
+  }
+  function cpClose() { $('cp').hidden = true; }
+  function drag(el, fn) {
+    el.addEventListener('pointerdown', function (e) {
+      e.preventDefault(); el.setPointerCapture(e.pointerId);
+      var mv = function (ev) {
+        var r = el.getBoundingClientRect();
+        fn(Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width)), Math.min(1, Math.max(0, (ev.clientY - r.top) / r.height)));
+      };
+      var up = function () { el.removeEventListener('pointermove', mv); el.removeEventListener('pointerup', up); el.removeEventListener('pointercancel', up); };
+      mv(e); el.addEventListener('pointermove', mv); el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+    });
+  }
+  drag($('cp-sv'), function (x, y) { cp.s = x; cp.v = 1 - y; cpSet(); });
+  drag($('cp-hue'), function (x) { cp.h = x * 359.99; cpSet(); });
+  $('cp-in').addEventListener('input', function () {
+    var v = this.value.trim().replace(/^#?/, '#').toLowerCase();
+    if (/^#[0-9a-f]{3}$/.test(v)) v = '#' + v[1] + v[1] + v[2] + v[2] + v[3] + v[3];
+    if (!/^#[0-9a-f]{6}$/.test(v)) return;
+    var c = hex2hsv(v); cp.h = c.h; cp.s = c.s; cp.v = c.v; cpUI(true);
+    $(cp.id).value = v; $(cp.id).dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  ['#111111', '#ffffff', '#ac0cea', '#9333ea', '#db2777', '#dc2626', '#ea580c', '#ca8a04', '#16a34a', '#065f46', '#0369a1', '#1e3a8a'].forEach(function (c) {
+    var b = document.createElement('button'); b.type = 'button'; b.style.background = c; b.setAttribute('aria-label', c);
+    b.addEventListener('click', function () { var h = hex2hsv(c); cp.h = h.h; cp.s = h.s; cp.v = h.v; cpSet(); });
+    $('cp-pal').appendChild(b);
+  });
+  document.addEventListener('click', function (e) { var b = e.target.closest('.clr'); if (b) cpOpen(b.dataset.c, b.getAttribute('aria-label')); });
+  $('cp-bd').addEventListener('click', cpClose); $('cp-x').addEventListener('click', cpClose); $('cp-ok').addEventListener('click', cpClose);
+  addEventListener('keydown', function (e) { if (e.key === 'Escape' && !$('cp').hidden) cpClose(); });
+
+  /* ====== Unduh ====== */
+  var tt;
+  function toast(t) {
+    $('toast-t').textContent = t; $('toast').classList.add('on');
+    clearTimeout(tt); tt = setTimeout(function () { $('toast').classList.remove('on'); }, 2200);
+  }
+  function save(blob, name) {
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+  }
+  function iconCanvas(size, o) {
+    var cv = document.createElement('canvas'); paintTo(cv, size, style(), content(), o); return cv;
+  }
+  function pngBlob(size, o) { return new Promise(function (res) { iconCanvas(size, o).toBlob(res, 'image/png'); }); }
+  function pngBytes(size, o) { return pngBlob(size, o).then(function (b) { return b.arrayBuffer(); }).then(function (a) { return new Uint8Array(a); }); }
+
+  async function icoBytes() {
+    var sizes = [16, 32, 48], imgs = [], i, total = 6 + 16 * sizes.length;
+    for (i = 0; i < sizes.length; i++) { var b = await pngBytes(sizes[i]); imgs.push(b); total += b.length; }
+    var out = new Uint8Array(total), dv = new DataView(out.buffer), o = 6 + 16 * sizes.length;
+    dv.setUint16(0, 0, true); dv.setUint16(2, 1, true); dv.setUint16(4, sizes.length, true);
+    for (i = 0; i < sizes.length; i++) {
+      var e = 6 + 16 * i;
+      out[e] = sizes[i]; out[e + 1] = sizes[i]; out[e + 2] = 0; out[e + 3] = 0;
+      dv.setUint16(e + 4, 1, true); dv.setUint16(e + 6, 32, true);
+      dv.setUint32(e + 8, imgs[i].length, true); dv.setUint32(e + 12, o, true);
+      out.set(imgs[i], o); o += imgs[i].length;
+    }
+    return out;
+  }
+  var CT = (function () { var t = [], c, n, k; for (n = 0; n < 256; n++) { c = n; for (k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+  function crc(b) { var c = 0xFFFFFFFF; for (var i = 0; i < b.length; i++) c = CT[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+  function zip(files) {
+    var enc = new TextEncoder(), parts = [], cd = [], off = 0, d = new Date();
+    var dt = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate(), tm = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1);
+    files.forEach(function (f) {
+      var nb = enc.encode(f.name), c = crc(f.data), n = f.data.length;
+      var h = new Uint8Array(30 + nb.length), v = new DataView(h.buffer);
+      v.setUint32(0, 0x04034b50, true); v.setUint16(4, 20, true); v.setUint16(6, 0x0800, true); v.setUint16(8, 0, true);
+      v.setUint16(10, tm, true); v.setUint16(12, dt, true); v.setUint32(14, c, true); v.setUint32(18, n, true); v.setUint32(22, n, true);
+      v.setUint16(26, nb.length, true); v.setUint16(28, 0, true); h.set(nb, 30);
+      parts.push(h, f.data);
+      var e = new Uint8Array(46 + nb.length), w = new DataView(e.buffer);
+      w.setUint32(0, 0x02014b50, true); w.setUint16(4, 20, true); w.setUint16(6, 20, true); w.setUint16(8, 0x0800, true); w.setUint16(10, 0, true);
+      w.setUint16(12, tm, true); w.setUint16(14, dt, true); w.setUint32(16, c, true); w.setUint32(20, n, true); w.setUint32(24, n, true);
+      w.setUint16(28, nb.length, true); w.setUint16(30, 0, true); w.setUint16(32, 0, true); w.setUint16(34, 0, true); w.setUint16(36, 0, true);
+      w.setUint32(38, 0, true); w.setUint32(42, off, true); e.set(nb, 46); cd.push(e);
+      off += h.length + n;
+    });
+    var cs = 0; cd.forEach(function (e) { cs += e.length; });
+    var end = new Uint8Array(22), x = new DataView(end.buffer);
+    x.setUint32(0, 0x06054b50, true); x.setUint16(4, 0, true); x.setUint16(6, 0, true); x.setUint16(8, files.length, true); x.setUint16(10, files.length, true);
+    x.setUint32(12, cs, true); x.setUint32(16, off, true); x.setUint16(20, 0, true);
+    return new Blob(parts.concat(cd, [end]), { type: 'application/zip' });
+  }
+
+  $('dl-png').onclick = function () { if (!hasContent(content())) return; pngBlob(512).then(function (b) { save(b, 'favicon-512.png'); }); };
+  $('dl-svg').onclick = function () { if (!hasContent(content())) return; save(new Blob([svgString()], { type: 'image/svg+xml' }), 'favicon.svg'); };
+  $('dl-ico').onclick = function () { if (!hasContent(content())) return; icoBytes().then(function (b) { save(new Blob([b], { type: 'image/x-icon' }), 'favicon.ico'); }); };
+  $('dl-zip').onclick = async function () {
+    if (!hasContent(content())) return;
+    var enc = new TextEncoder(), name = $('f-site').value.trim() || 'Situs Kamu', tc = themeColor();
+    var files = [
+      { name: 'favicon.ico', data: await icoBytes() },
+      { name: 'favicon-16x16.png', data: await pngBytes(16) },
+      { name: 'favicon-32x32.png', data: await pngBytes(32) },
+      { name: 'apple-touch-icon.png', data: await pngBytes(180, { apple: true }) },
+      { name: 'android-chrome-192x192.png', data: await pngBytes(192) },
+      { name: 'android-chrome-512x512.png', data: await pngBytes(512) }
+    ];
+    if (S.t !== 'text') files.push({ name: 'favicon.svg', data: enc.encode(svgString()) });
+    files.push({ name: 'site.webmanifest', data: enc.encode(JSON.stringify({ name: name, short_name: name, icons: [{ src: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' }, { src: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' }], theme_color: tc, background_color: tc, display: 'standalone' }, null, 2)) });
+    files.push({ name: 'pasang-di-head.txt', data: enc.encode('Unggah semua file ke folder utama (root) website, lalu tempel kode ini ke dalam <head> setiap halaman:\n\n' + snippet() + '\n') });
+    save(zip(files), 'clincoo-favicon.zip'); toast('Paket favicon diunduh');
+  };
+  $('copy').onclick = function () {
+    var txt = snippet();
+    function fb() {
+      var ta = document.createElement('textarea'); ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); toast('Kode disalin'); } catch (e) { toast('Gagal menyalin kode'); }
+      ta.remove();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function () { toast('Kode disalin'); }, fb);
+    else fb();
+  };
+
+  /* Awal */
+  syncUI(); render();
+  if (document.fonts && document.fonts.load) {
+    Promise.all(Object.keys(FONTS).map(function (k) { return document.fonts.load(FONTS[k].spec, 'CAa1'); })).then(function () {
+      Object.keys(FONTS).forEach(function (k) { FL[k] = 1; }); render();
+    }, function () {});
+  }
+  addEventListener('load', render);
+})();
+</script>
+</body>
+</html>
