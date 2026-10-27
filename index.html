@@ -9,8 +9,8 @@
 
 <!-- Primary SEO -->
 <title>Clincoo Tools — Kumpulan Tools Gratis Tanpa Iklan</title>
-<meta name="description" content="Kumpulan tools gratis dari Clincoo: QR Code, Invoice, WhatsApp Link, Kalkulator THR & PPh 21. Tanpa iklan, tanpa daftar, tanpa watermark. Langsung pakai di browser.">
-<meta name="keywords" content="tools gratis, qr code generator, invoice generator, whatsapp link, kalkulator thr, pph 21, clincoo tools, tools online indonesia">
+<meta name="description" content="Kumpulan tools gratis dari Clincoo: QR Code, Invoice, Favicon Generator, Kalkulator THR & PPh 21. Tanpa iklan, tanpa daftar, tanpa watermark. Langsung pakai di browser.">
+<meta name="keywords" content="tools gratis, qr code generator, invoice generator, favicon generator, kalkulator thr, pph 21, clincoo tools, tools online indonesia">
 <meta name="author" content="Clincoo">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://tools.clincoo.buzz/">
@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tools.clincoo.buzz/">
 <meta property="og:title" content="Clincoo Tools — Kumpulan Tools Gratis Tanpa Iklan">
-<meta property="og:description" content="Kumpulan tools gratis dari Clincoo: QR Code, Invoice, WhatsApp Link, Kalkulator THR & PPh 21. Tanpa iklan, tanpa daftar, tanpa watermark.">
+<meta property="og:description" content="Kumpulan tools gratis dari Clincoo: QR Code, Invoice, Favicon Generator, Kalkulator THR & PPh 21. Tanpa iklan, tanpa daftar, tanpa watermark.">
 <meta property="og:site_name" content="Clincoo Tools">
 <meta property="og:locale" content="id_ID">
 <meta property="og:image" content="https://tools.clincoo.buzz/og-image.png">
@@ -30,7 +30,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Clincoo Tools — Kumpulan Tools Gratis Tanpa Iklan">
-<meta name="twitter:description" content="Kumpulan tools gratis dari Clincoo: QR Code, Invoice, WhatsApp Link, Kalkulator THR & PPh 21. Tanpa iklan, tanpa daftar, tanpa watermark.">
+<meta name="twitter:description" content="Kumpulan tools gratis dari Clincoo: QR Code, Invoice, Favicon Generator, Kalkulator THR & PPh 21. Tanpa iklan, tanpa daftar, tanpa watermark.">
 <meta name="twitter:image" content="https://tools.clincoo.buzz/og-image.png">
 
 <!-- Favicon: logo Clincoo -->
@@ -44,7 +44,7 @@
   "@type": "WebApplication",
   "name": "Clincoo Tools",
   "url": "https://tools.clincoo.buzz/",
-  "description": "Kumpulan tools gratis dari Clincoo: QR Code, Invoice, WhatsApp Link, Kalkulator THR & PPh 21. Tanpa iklan, tanpa daftar, tanpa watermark.",
+  "description": "Kumpulan tools gratis dari Clincoo: QR Code, Invoice, Favicon Generator, Kalkulator THR & PPh 21. Tanpa iklan, tanpa daftar, tanpa watermark.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "offers": {
@@ -84,18 +84,23 @@
   [hidden] { display: none !important; }
 
 
-  main { max-width: 560px; margin: 0 auto; padding: calc(28px + env(safe-area-inset-top, 0px)) 16px calc(40px + env(safe-area-inset-bottom, 0px)); animation: vin .22s cubic-bezier(.2,.7,.2,1); }
+  main { max-width: 560px; margin: 0 auto; padding: 20px 16px calc(40px + env(safe-area-inset-bottom, 0px)); animation: vin .22s cubic-bezier(.2,.7,.2,1); }
   @keyframes vin { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-  /* Hero */
-  .hero { display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 14px; text-align: left; padding: 4px 4px 0; }
+  /* Header: logo + nama, menempel di atas */
+  .top { position: sticky; top: 0; z-index: 20; padding-top: env(safe-area-inset-top, 0px); background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); }
+  .top-in { display: flex; align-items: center; gap: 10px; max-width: 560px; height: 56px; margin: 0 auto; padding: 0 20px; }
+  .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
   /* Logo Clincoo: SVG memakai currentColor, otomatis ikut tema terang/gelap */
-  .logo { display: block; width: 46px; height: 46px; color: var(--fg); }
+  .logo { flex: none; display: block; width: 30px; height: 30px; color: var(--fg); }
   .logo svg { width: 100%; height: 100%; display: block; }
-  .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; }
-  .hero p { grid-column: 1 / -1; margin-top: 16px; font-size: 14.5px; line-height: 1.5; color: var(--mut); text-wrap: pretty; }
+  .brand h1 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -.02em; line-height: 1; white-space: nowrap; }
 
-  .perks { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px; margin: 14px 0 0; }
+  /* Hero */
+  .hero { padding: 4px 4px 0; }
+  .hero p { font-size: 14.5px; line-height: 1.5; color: var(--mut); text-wrap: pretty; }
+
+  .perks { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px; margin: 14px 0 0; }
   .perk { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 13px; border-radius: 9999px; background: var(--card); font-size: 12.5px; font-weight: 500; }
   .perk i { font-size: 15px; color: var(--mut); }
 
@@ -154,17 +159,24 @@
 </head>
 <body>
 
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="/" aria-label="Clincoo Tools, beranda">
+      <span class="logo" id="logo" role="img" aria-label="Logo Clincoo">
+        <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 22A19 19 0 0 1 22 3L22 22Z"/>
+          <path d="M22 26L3 26A19 19 0 0 0 22 45Z"/>
+          <circle cx="35.5" cy="12.5" r="9.5"/>
+          <circle cx="35.5" cy="35.5" r="9.5"/>
+        </svg>
+      </span>
+      <h1>Clincoo Tools</h1>
+    </a>
+  </div>
+</header>
+
 <main>
   <section class="hero">
-    <div class="logo" id="logo" role="img" aria-label="Logo Clincoo">
-      <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M3 22A19 19 0 0 1 22 3L22 22Z"/>
-        <path d="M22 26L3 26A19 19 0 0 0 22 45Z"/>
-        <circle cx="35.5" cy="12.5" r="9.5"/>
-        <circle cx="35.5" cy="35.5" r="9.5"/>
-      </svg>
-    </div>
-    <h1>Clincoo Tools</h1>
     <p>Kumpulan tools gratis untuk pekerjaan sehari-hari.</p>
     <div class="perks">
       <span class="perk"><i class="ph ph-prohibit"></i>Tanpa iklan</span>
@@ -211,7 +223,7 @@
   var TOOLS = [
     { name: 'Clincoo QR',      cat: 'Umum', desc: 'Buat QR code untuk link, WhatsApp, dan Wi-Fi', ico: 'ph-qr-code',       href: '/tools/qr' },
     { name: 'Clincoo Invoice', cat: 'Keuangan',  desc: 'Generator invoice dan kwitansi',               ico: 'ph-receipt',       href: '/tools/invoice' },
-    { name: 'Clincoo WA Link', cat: 'Umum', desc: 'Link WhatsApp dengan pesan otomatis',          ico: 'ph-whatsapp-logo', href: '/tools/wa' },
+    { name: 'Clincoo Favicon', cat: 'Umum', desc: 'Generator favicon dari gambar atau teks',        ico: 'ph-image-square',  href: '/tools/favicon' },
     { name: 'Clincoo Hitung',  cat: 'Keuangan',  desc: 'Kalkulator THR, PPh 21, dan cicilan',          ico: 'ph-calculator',    href: '/tools/hitung' }
   ];
 
